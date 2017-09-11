@@ -52,13 +52,17 @@ The first script that you're going to want to run is the CCB people extraction s
    1. Open the script with a text editor of your choice
    2. Edit the username, password and ccb_url fields with the values you created and captured in the CCB API Info section above. These values are strings, and will need to be single or double quoted. Save the file, and close the text editor
 4. **Test the Script**
-    1. Using the same command or terminal window, enter the following command
-        `ruby ccb-people-extract.rb test`
-This will execute a simple test to ensure that the keys are accepted by CCB and connectivity is working correctly.
+    1. Using the same command or terminal window, enter the following command  
+
+        `ruby ccb-people-extract.rb test`   
+
+        This will execute a simple test to ensure that the keys are accepted by CCB and connectivity is working correctly.
     2. If everything is working correctly, you should get a message indicating “Test successful”
 5. **Now for the full extraction!**
-    1. Again, with the same terminal window open, run the following command
-        `ruby ccb-people-extract.rb`
+    1. Again, with the same terminal window open, run the following command   
+
+         `ruby ccb-people-extract.rb`   
+
     2. The script will take several minutes to complete the extraction, and begin to download the images, if any.
     3. Once complete, the script will give you a final count of the People record count it extracted, as well as the number of person and family images download. The script will also detect if campus names were in the extracted info, and make some recommendations for the import.
     4. The output of the script will be placed into an output subfolder in the folder you ran it:
