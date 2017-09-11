@@ -13,8 +13,8 @@ require 'fileutils'
 ##############################
 username = 'community_ccb_user'
 password = 'dGUQRWq19N8'
-##############################
 ccb_url = "https://cc.ccbchurch.com/api.php"
+##############################
 ccb_service = "individual_search"
 ccb_search_parm = "last_name"
 ccb_array = []
