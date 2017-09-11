@@ -2,18 +2,18 @@
 
 The following scripts were created to simplify migration of data off of Community Church Building (CCB) to Planning Center Online (PCO People).
 
-First a bit of history…When we migrated from CCB to PCO in the Fall of 2016, the process of extracting information out of CCB was [quite painful](http://www.bottomshelvz.com/2017/04/why-we-migrated-from-ccb-to-pco/), while the import process into PCO was simple and quick. Even though our migration is complete, I thought it might be of value to the PCO to write a script or two to simplify this CCB export process, and possibly do a little bit of prep for PCO import as well.
+First a bit of history…When we migrated from CCB to PCO in the Fall of 2016, the process of extracting information out of CCB was [quite painful](http://www.bottomshelvz.com/2017/04/why-we-migrated-from-ccb-to-pco/), while the import process into PCO was simple and quick. Even though our migration is complete, I thought it might be of value to the PCO Community to write a script or two to simplify this CCB export process, and possibly do a little bit of prep for PCO import as well.
 
 ## Why Ruby Scripts?
 The method to export the information out of CCB to could taken several different forms. I chose to use simple composite Ruby scripts for a couple of reasons:
 1) A lot of the PCO community, and even some of the PCO team themselves, seem to like Ruby
 
-2) Ruby is pretty much available on any platform and is simple to install. If you are on Mac OS (like a lot of the church church seems to be these days), then you already have Ruby natively installed and ready to go. I you are are Windows, its simple to install ruby (links are below).
+2) Ruby is pretty much available on any platform and is simple to install. If you are on Mac OS (like a lot of the church community seems to be these days), then you already have Ruby natively installed and ready to go. If you are are Windows, its simple to install Ruby (links are below).
 
-3) This was created as a downloadable script, rather than a web service or hosted app, mainly to eliminate risk to your data. The app requires a CCB API Key to be generated and used that will allow access to all of your data. If I had done this on a hosted platform, no matter how much we promised, there's always a perceived risk that somehow we might be keeping or not securing your API keys, putting your data in CCB at risk. Running this as a local script on your machine, where you never share the keys with us, mitigates this risk.
+3) This was created as a downloadable script, rather than a web service or hosted app, mainly to eliminate risk to your data. The app requires a CCB API Key to be generated and used that will allow access to all of *your* data. If I had done this on a hosted platform, no matter how much we promised or precautions we took, there's always a perceived risk that somehow we might be keeping or not securing your API keys, putting your data in CCB at risk. Running this as a local script on your machine, where you never share the keys with us, mitigates this risk.
 
 ## Any other risks?
-Running these scripts should be low risk, as we have ONLY used read api calls, which should never change or delete any information.
+Running these scripts should be low risk, as we have ONLY used **read** api calls, which should never change or delete any information.
 
 ## Getting Ready
 There are a few steps to complete to get ready to run the script(s)
