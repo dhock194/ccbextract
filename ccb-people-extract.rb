@@ -1,19 +1,15 @@
-# insert conditional value for campus, if not multi-campus!
-# check harlanpester -- why multi records, and not aligned from ccb?
+
 require 'rubygems'
-require 'pp'
-require 'date'
 require 'curl'
 require 'csv'
-#require 'dotenv'
-#require 'dotenv-rails'
-require 'xmlsimple'
-require "open-uri"
-require 'fileutils'
+require 'xml-simple'
+require "openurl"
+require 'file-utils'
+
 ##############################
-username = 'community_ccb_user'
-password = 'dGUQRWq19N8'
-ccb_url = "https://cc.ccbchurch.com/api.php"
+username = '<username>'
+password = '<password>'
+ccb_url = "<url>"
 ##############################
 ccb_service = "individual_search"
 ccb_search_parm = "last_name"
@@ -217,7 +213,6 @@ else
                           when "udf_text_3"
                             ctext["label"].nil?   ?   @udf_text_3_label = ""    : @udf_text_3_label = ctext["label"][0]
                             ctext["text"].nil?    ?   @udf_text_3_value = ""    : @udf_text_3_value = ctext["text"][0]
-                            pp "Label: #{@udf_text_3_label}"
                           when "udf_text_4"
                             ctext["label"].nil?   ?   @udf_text_4_label = ""    : @udf_text_4_label = ctext["label"][0]
                             ctext["text"].nil?    ?   @udf_text_4_value = ""    : @udf_text_4_value = ctext["text"][0]
