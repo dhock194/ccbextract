@@ -34,7 +34,7 @@ then enter. You should get some info about the Ruby version installed, indicatin
     You should get a list of Gems already installed. If you get an error, you will want to check how to install the Gem package manager for Ruby (more details in the future)
     2. To ensure that the proper Gems are installed, run the following command in a terminal window:
 
-             `gem install curl xml-simple openurl file-utils curb`
+             gem install curl xml-simple openurl file-utils curb
 
     You should get  from feedback about the gems being installed, with a final message indicating that "X gems were installed", indicating success.
 
