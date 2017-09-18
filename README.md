@@ -39,12 +39,12 @@ then enter. You should get some info about the Ruby version installed, indicatin
 
             xcode-select --install
 
-       When this is run, it will likely pop up a dialog box, letting you know progress of the install.
+    When this is run, it will likely pop up a dialog box, letting you know progress of the install.
     2. To ensure that the proper Gems are installed, run the following command in a terminal window:
 
              gem install curl xml-simple openurl file-utils curb
 
-             You should get  from feedback about the gems being installed, with a final message indicating that "X gems were installed", indicating success.
+    You should get  from feedback about the gems being installed, with a final message indicating that "X gems were installed", indicating success.
 
 ## ccb-people-extraction.rb
 The first script that you're going to want to run is the CCB people extraction script (ccb-people-extraction.rb), which will extract all of the people data out of CCB and provide you with several outputs:
