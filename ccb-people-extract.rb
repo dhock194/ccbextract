@@ -1,10 +1,11 @@
 
 require 'rubygems'
 require 'curl'
+require 'curb'
 require 'csv'
-require 'xml-simple'
+require 'xmlsimple'
 require "openurl"
-require 'file-utils'
+require 'fileutils'
 
 ##############################
 username = '<username>'

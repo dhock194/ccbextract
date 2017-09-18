@@ -28,10 +28,14 @@ There are a few steps to complete to get ready to run the script(s)
 ```ruby -v```
 then enter. You should get some info about the Ruby version installed, indicating things are working.
     2. If you are running on Windows, go to https://rubyinstaller.org/, download and install Ruby. Once installed you should be able to do the same test from within a Command window (cmd), verifying that Ruby is properly installed.
-2. **Checking / Installing Ruby Gems**
+3. **Checking / Installing Ruby Gems**
     1. Your system likely has the basic set of Ruby gems installed, so we will need to add a few. Dont worry -- they are small and out of the way! You can check which Gems are installed, and check that the Gem package manager is running, by running the following command on a terminal window:
 ```gem list```
     You should get a list of Gems already installed. If you get an error, you will want to check how to install the Gem package manager for Ruby (more details in the future)
+    2. On some older MacOS versions, you may need to use xcode to align gem path locations. Run the following command in the
+      terminal window:
+```xcode-select --install```
+       When this is run, it will likely pop up a dialog box, letting you know progress of the install.
     2. To ensure that the proper Gems are installed, run the following command in a terminal window:
 
              gem install curl xml-simple openurl file-utils curb
@@ -59,7 +63,9 @@ The first script that you're going to want to run is the CCB people extraction s
 2. **Download the script** (from Github) and open a terminal/command window in the same folder as the script. For example, if you downloaded the script into your Downloads folder, you will want to cd /users/<username>/Downloads.
 3. **Edit the script**
    1. Open the script with a text editor of your choice
-   2. Edit the username, password and ccb_url fields with the values you created and captured in the CCB API Info section above. These values are strings, and will need to be single or double quoted. Save the file, and close the text editor
+   2. Edit the username, password and ccb_url fields with the values you created and captured in the CCB API Info section above. *These values are strings, and will need to be double quoted*. For example:
+``` ccb_url = "https://churchname.ccbchurch.com/api.php" ```
+   Save the file, and close the text editor
 4. **Test the Script**
     1. Using the same command or terminal window, enter the following command  
 
