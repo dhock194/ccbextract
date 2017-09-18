@@ -31,20 +31,20 @@ then enter. You should get some info about the Ruby version installed, indicatin
 3. **Checking / Installing Ruby Gems**
     1. Your system likely has the basic set of Ruby gems installed, so we will need to add a few. Dont worry -- they are small and out of the way! You can check which Gems are installed, and check that the Gem package manager is running, by running the following command on a terminal window:
 
-            `gem list`
-    
+            gem list
+
     You should get a list of Gems already installed. If you get an error, you will want to check how to install the Gem package manager for Ruby (more details in the future)
     2. On some older MacOS versions, you may need to use xcode to align gem path locations. Run the following command in the
       terminal window:
 
-            `xcode-select --install`
+            xcode-select --install
 
        When this is run, it will likely pop up a dialog box, letting you know progress of the install.
     2. To ensure that the proper Gems are installed, run the following command in a terminal window:
 
              gem install curl xml-simple openurl file-utils curb
 
-    You should get  from feedback about the gems being installed, with a final message indicating that "X gems were installed", indicating success.
+             You should get  from feedback about the gems being installed, with a final message indicating that "X gems were installed", indicating success.
 
 ## ccb-people-extraction.rb
 The first script that you're going to want to run is the CCB people extraction script (ccb-people-extraction.rb), which will extract all of the people data out of CCB and provide you with several outputs:
