@@ -22,7 +22,7 @@ There are a few steps to complete to get ready to run the script(s)
 
     2. Copy Your API URL, saving it for insertion into the script. This will be specific to your account, and needs to be set properly.
 
-    3. Next, if you dont already have an API User created, click on Add a new API User on the right. On the *User* tab, enter the name/username/password fields, using a service account username like ccb_api_user or similar. The Org contact info boxes should be optional. Then on the *Services* tab, click *Select All*. Click Save to save this API user info, and then I'm Finished to exit the API interface. Remember to save the URL, username and password you created in this step.
+    3. Next, if you dont already have an API User created, click on Add a new API User on the right. Enter the name/username/password fields, using a service account username like ccb_api_user or similar.. the Org contact info boxes should be optional. Click Save to save this API user info, and save it with the API URL you captured in the step above.
 2. **Checking / Installing Ruby**
     1. If you are running on Mac OS, simply open a terminal window — click on the Magnifying Glass on the task bar, type terminal, then return. You will be greeted with a plain old command line interface, which should be in your user folder (/users/<Your Username>). In the terminal window, type
 ```ruby -v```
@@ -90,4 +90,27 @@ The first script that you're going to want to run is the CCB people extraction s
         1. You will find  `ccbextract_<date>.csv` and `pcoimport_<date>.csv` files in the output subfolder. Both are date and time stamped, so if you run the script again, you will have the new and older copies of each.
         2. Person images downloaded will be in the `output/ccbextract_images` subfolder, and Family images will be in the `output/ccbextract_family_images` subfolder.
 
-Please let me know any issues you have running this — while not perfect, the goal was to make the exit process from CCB less painful than it was for us!
+
+## ccb-batch-extraction.rb
+The second script that you're going to want to run is the CCB batch extraction script (ccb-batch-extraction.rb), which will extract all of the batch, transaction and transaction detail data out of CCB and provide you with single CCB Export CSV file, containing all available transaction information that came out of CCB, generally unfiltered or untranslated.
+
+### How to use
+1. **Download the script** (from Github) and open a terminal/command window in the same folder as the script. For example, if you downloaded the script into your Downloads folder, you will want to cd /users/<username>/Downloads.
+2. **Edit the script**
+   1. Open the script with a text editor of your choice
+   2. Edit the username, password and ccb_url fields with the values you created and captured in the CCB API Info section above. *These values are strings, and will need to be double quoted*. For example:
+
+        `ccb_url = "https://churchname.ccbchurch.com/api.php" `
+
+   3.   Save the file, and close the text editor
+
+3. **Run the script!**
+    1. Since you would have tested your API keys in the last script, we will assume that these are working, so need to retest. Just make sure the URL, key and password are the same as the people extraction script.
+    2. With the terminal window open, run the following command   
+
+         `ruby ccb-batch-extract.rb`   
+
+    2. The script will take several minutes to complete the extraction, with seemingly nothing happening for a few minutes, This is due to the way to api pull from CCB is structured -- it literally does one call to get all batch records going back to 1/1/2008.     3. Once complete, the script will give you a final count of the Batch, Transaction and Transaction Details records it extracted.
+    4. The output of the script will be placed into an output subfolder in the folder you ran it. Note that the CSV format is designed to be a normalized representation of the data -- the CCB database has different tables for batches, transactions and transaction details, so that every batch might have 1 or more transactioin, and each transaction might have one or more transaction detail, meaning a split gift to more than one fund. The normalized output provides one row per batch/transaction/transaction detail.
+
+Please let me know any issues you have running these — while not perfect, the goal was to make the exit process from CCB less painful than it was for us!
