@@ -22,7 +22,7 @@ There are a few steps to complete to get ready to run the script(s)
 
     2. Copy Your API URL, saving it for insertion into the script. This will be specific to your account, and needs to be set properly.
 
-    3. Next, if you dont already have an API User created, click on Add a new API User on the right. Enter the name/username/password fields, using a service account username like ccb_api_user or similar.. the Org contact info boxes should be optional. Click Save to save this API user info, and save it with the API URL you captured in the step above.
+    3. Next, if you dont already have an API User created, click on Add a new API User on the right. On the *User* tab, enter the name/username/password fields, using a service account username like ccb_api_user or similar. The Org contact info boxes should be optional. Then on the *Services* tab, click *Select All*. Click Save to save this API user info, and then I'm Finished to exit the API interface. Remember to save the URL, username and password you created in this step.
 2. **Checking / Installing Ruby**
     1. If you are running on Mac OS, simply open a terminal window — click on the Magnifying Glass on the task bar, type terminal, then return. You will be greeted with a plain old command line interface, which should be in your user folder (/users/<Your Username>). In the terminal window, type
 ```ruby -v```
