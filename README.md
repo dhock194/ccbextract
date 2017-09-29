@@ -117,4 +117,27 @@ The second script that you're going to want to run is the CCB batch extraction s
     3.  Once complete, the script will give you a final count of the Batch, Transaction and Transaction Details records it extracted.
     4. The output of the script will be placed into an output subfolder in the folder you ran it. Note that the CSV format is designed to be a normalized representation of the data -- the CCB database has different tables for batches, transactions and transaction details, so that every batch might have 1 or more transaction, and each transaction might have one or more transaction detail, meaning a split gift to more than one fund. The normalized output provides one row per batch/transaction/transaction detail.
 
+## ccb-event-extraction.rb
+The third script that you're going to want to run is the CCB event extraction script (ccb-event-extraction.rb), which will extract all of the event details from CCBCCB and provide you with single CCB Export CSV file, containing all event data.
+
+### How to use
+1. **Download the script** (from Github) and open a terminal/command window in the same folder as the script. For example, if you downloaded the script into your Downloads folder, you will want to cd /users/<username>/Downloads.
+2. **Edit the script**
+   1. Open the script with a text editor of your choice
+   2. Edit the username, password and ccb_url fields with the values you created and captured in the CCB API Info section above. *These values are strings, and will need to be double quoted*. For example:
+
+        `ccb_url = "https://churchname.ccbchurch.com/api.php" `
+
+   3.   Save the file, and close the text editor
+
+3. **Run the script!**
+    1. Since you would have tested your API keys in the first script, we will assume that these are working, so need to retest. Just make sure the URL, key and password are the same as the people extraction script.
+    2. With the terminal window open, run the following command   
+
+         `ruby ccb-event-extract.rb`   
+
+    2. The script will take several minutes to complete the extraction, with seemingly nothing happening for a few minutes. This is due to the way to api pull from CCB is structured -- it literally does one call to get all event records going back to 1/1/2010.
+    3.  Once complete, the script will give you a final count of the Event records it extracted.
+    4. The output of the script will be placed into an output subfolder in the folder you ran it.
+
 Please let me know any issues you have running these — while not perfect, the goal was to make the exit process from CCB less painful than it was for us!
