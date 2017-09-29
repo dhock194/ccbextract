@@ -79,7 +79,7 @@ else
   puts "******************************************************"
   puts("Beginning extraction process ....")
   # Extraction mode A - Z
-  ("A".."Z").each do |letter|
+  ("A".."B").each do |letter|
   #letter = "H"
         puts "Extracting last names starting in #{letter}..."
         target_url = "#{ccb_url}" + "?srv=" + "#{ccb_service}" + "&" + "#{ccb_search_parm}" + "=" + "#{letter}"
@@ -495,24 +495,32 @@ else
         file.write("#{c}\n")
         image_array = c.split(',')
 
-        # if image field not nil, not empty and "default", save it
-            if !image_array[imagecol].nil? and image_array[imagecol] != "family_image" and image_array[imagecol] != "" and !(image_array[imagecol] =~ /default(.*)/)
-                puts "saving image for #{image_array[fnamecol]} #{image_array[lnamecol]}:#{imagefolder}/#{image_array[ccbidcol]}_#{image_array[fnamecol]}_#{image_array[lnamecol]}: #{image_array[imagecol]}"
-                      open(image_array[imagecol]) {|fl|
-                         File.open("#{imagefolder}/#{image_array[ccbidcol]}_#{image_array[fnamecol]}_#{image_array[lnamecol]}.jpg","wb") do |file|
-                           file.puts fl.read
-                         end
-                      }
-                image_counter += 1
-            end
-            # if family image field not nil, not empty and "default", save it
+        #if image field not nil, not empty and "default", save it
+        if !image_array[imagecol].nil? and image_array[imagecol] != "family_image" and image_array[imagecol] != "" and !(image_array[imagecol] =~ /default(.*)/)
+          puts "saving image for #{image_array[fnamecol]} #{image_array[lnamecol]}:#{imagefolder}/#{image_array[ccbidcol]}_#{image_array[fnamecol]}_#{image_array[lnamecol]}: #{image_array[imagecol]}"
+          begin
+                  open(image_array[imagecol]) {|fl|
+                     File.open("#{imagefolder}/#{image_array[ccbidcol]}_#{image_array[fnamecol]}_#{image_array[lnamecol]}.jpg","wb") do |file|
+                       file.puts fl.read
+                     end
+                  }
+         rescue
+                  puts "Error downloading file -- skipping"
+         end
+            image_counter += 1
+        end
+            #if family image field not nil, not empty and "default", save it
             if !image_array[familyimagecol].nil? and image_array[familyimagecol] != "family_image" and image_array[familyimagecol] != "" and !(image_array[familyimagecol] =~ /default(.*)/)
                 puts "saving family image for #{image_array[fnamecol]} #{image_array[lnamecol]}:#{imagefolder}/#{image_array[famidcol]}_#{image_array[famnamecol]}: #{image_array[familyimagecol]}"
+                begin
                       open(image_array[familyimagecol]) {|fl|
-                         File.open("#{famimagefolder}/#{image_array[famidcol]}_#{image_array[famnamecol]}.jpg","wb") do |file|
+                         File.open("#{famimagefolder}/#{image_array[famidcol]}_#{image_array[famnamecol]}","wb") do |file|
                          file.puts fl.read
                          end
                       }
+                rescue
+                  puts "Error downloading file -- skipping"
+                end
                 family_image_counter += 1
 
                 end

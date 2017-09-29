@@ -42,7 +42,7 @@ then enter. You should get some info about the Ruby version installed, indicatin
     When this is run, it will likely pop up a dialog box, letting you know progress of the install.
     2. To ensure that the proper Gems are installed, run the following command in a terminal window:
 
-             gem install curl xml-simple openurl file-utils curb
+             gem install curl xml-simple openurl file-utils curb eat
 
     You should get  from feedback about the gems being installed, with a final message indicating that "X gems were installed", indicating success.
 
@@ -90,6 +90,9 @@ The first script that you're going to want to run is the CCB people extraction s
         1. You will find  `ccbextract_<date>.csv` and `pcoimport_<date>.csv` files in the output subfolder. Both are date and time stamped, so if you run the script again, you will have the new and older copies of each.
         2. Person images downloaded will be in the `output/ccbextract_images` subfolder, and Family images will be in the `output/ccbextract_family_images` subfolder.
 
+6. **Notes**
+ - As of 9/27/17, CCB apparently changed something related to the image URLs that the script was extracting, making the script fail and images unable to be downloaded. I updated the script on 9/29/17 to accomodate this change, so please make sure that you a) reinstall the gems based on the new list above, or at least install the eat gem, and b) Download the newest version of the script from this site.
+
 
 ## ccb-batch-extraction.rb
 The second script that you're going to want to run is the CCB batch extraction script (ccb-batch-extraction.rb), which will extract all of the batch, transaction and transaction detail data out of CCB and provide you with single CCB Export CSV file, containing all available transaction information that came out of CCB, generally unfiltered or untranslated.
@@ -110,7 +113,8 @@ The second script that you're going to want to run is the CCB batch extraction s
 
          `ruby ccb-batch-extract.rb`   
 
-    2. The script will take several minutes to complete the extraction, with seemingly nothing happening for a few minutes, This is due to the way to api pull from CCB is structured -- it literally does one call to get all batch records going back to 1/1/2007.     3. Once complete, the script will give you a final count of the Batch, Transaction and Transaction Details records it extracted.
+    2. The script will take several minutes to complete the extraction, with seemingly nothing happening for a few minutes. This is due to the way to api pull from CCB is structured -- it literally does one call to get all batch records going back to 1/1/2007.
+    3.  Once complete, the script will give you a final count of the Batch, Transaction and Transaction Details records it extracted.
     4. The output of the script will be placed into an output subfolder in the folder you ran it. Note that the CSV format is designed to be a normalized representation of the data -- the CCB database has different tables for batches, transactions and transaction details, so that every batch might have 1 or more transaction, and each transaction might have one or more transaction detail, meaning a split gift to more than one fund. The normalized output provides one row per batch/transaction/transaction detail.
 
 Please let me know any issues you have running these — while not perfect, the goal was to make the exit process from CCB less painful than it was for us!
