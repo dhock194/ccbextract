@@ -118,7 +118,7 @@ The second script that you're going to want to run is the CCB batch extraction s
     4. The output of the script will be placed into an output subfolder in the folder you ran it. Note that the CSV format is designed to be a normalized representation of the data -- the CCB database has different tables for batches, transactions and transaction details, so that every batch might have 1 or more transaction, and each transaction might have one or more transaction detail, meaning a split gift to more than one fund. The normalized output provides one row per batch/transaction/transaction detail.
 
 ## ccb-event-extraction.rb
-The third script that you're going to want to run is the CCB event extraction script (ccb-event-extraction.rb), which will extract all of the event details from CCBCCB and provide you with single CCB Export CSV file, containing all event data.
+The third script that you're going to want to run is the CCB event extraction script (ccb-event-extraction.rb), which will extract all of the event details from CCB and provide you with single CCB Export CSV file, containing all event data.
 
 ### How to use
 1. **Download the script** (from Github) and open a terminal/command window in the same folder as the script. For example, if you downloaded the script into your Downloads folder, you will want to cd /users/<username>/Downloads.
