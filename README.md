@@ -140,4 +140,18 @@ The third script that you're going to want to run is the CCB event extraction sc
     3.  Once complete, the script will give you a final count of the Event records it extracted.
     4. The output of the script will be placed into an output subfolder in the folder you ran it.
 
+## Stub Scripts
+Along with the 3 scripts above, I created the beginnings of several other scripts, which are really stubs so far -- they each access the relevant CCB API endpoint, and extract the data as one huge JSON text, but for each of these, I was not able to complete the more tedious work of parsing the array/hash values in order extract specific fields for export to a CSV. You are more than welcome to extend them in any way you want. Or, you can just run them and pipe the output to the file (to get it out of CCB), and create the process to parse it later.
+
+These stub scripts are as follows:
+- ccb-attendance-extract.rb     -->     Extracts CCB attendance records
+- ccb-calendar-extract.rb       -->     Extracts CCB calendar records
+- ccb-coa-extract.rb            -->     Extracts CCB chart of account records
+- ccb-forms-extract.rb          -->     Extracts CCB forms records
+- ccb-group-extract.rb          -->     Extracts CCB group records
+- ccb-process-extract.rb        -->     Extracts CCB process records
+- ccb-resource-extract.rb       -->     Extracts CCB resource records
+
+***
+
 Please let me know any issues you have running these — while not perfect, the goal was to make the exit process from CCB less painful than it was for us!
