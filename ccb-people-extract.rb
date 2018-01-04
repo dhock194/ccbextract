@@ -79,7 +79,7 @@ else
   puts "******************************************************"
   puts("Beginning extraction process ....")
   # Extraction mode A - Z
-  ("A".."B").each do |letter|
+  ("A".."Z").each do |letter|
   #letter = "H"
         puts "Extracting last names starting in #{letter}..."
         target_url = "#{ccb_url}" + "?srv=" + "#{ccb_service}" + "&" + "#{ccb_search_parm}" + "=" + "#{letter}"
