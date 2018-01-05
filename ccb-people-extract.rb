@@ -5,7 +5,9 @@ require 'curb'
 require 'csv'
 require 'xmlsimple'
 require "openurl"
+require "open-uri"
 require 'fileutils'
+require 'pp'
 
 ##############################
 username = '<username>'
@@ -107,6 +109,7 @@ else
           t["salutation"][0].empty?         ? @salutation    = "" :  @salutation    = t["salutation"][0]
           t["suffix"][0].empty?             ? @suffix        = "" :  @suffix        = t["suffix"][0]
           image = t["image"][0] ##
+
           @allergy_string = ""
           t["allergies"].each do |allergy|
             if allergy.empty?
@@ -495,35 +498,32 @@ else
         file.write("#{c}\n")
         image_array = c.split(',')
 
-        #if image field not nil, not empty and "default", save it
+
         if !image_array[imagecol].nil? and image_array[imagecol] != "family_image" and image_array[imagecol] != "" and !(image_array[imagecol] =~ /default(.*)/)
-          puts "saving image for #{image_array[fnamecol]} #{image_array[lnamecol]}:#{imagefolder}/#{image_array[ccbidcol]}_#{image_array[fnamecol]}_#{image_array[lnamecol]}: #{image_array[imagecol]}"
+          puts "Saving image for #{image_array[fnamecol]} #{image_array[lnamecol]}:#{imagefolder}/#{image_array[ccbidcol]}_#{image_array[fnamecol]}_#{image_array[lnamecol]}: #{image_array[imagecol]}"
           begin
-                  open(image_array[imagecol]) {|fl|
-                     File.open("#{imagefolder}/#{image_array[ccbidcol]}_#{image_array[fnamecol]}_#{image_array[lnamecol]}.jpg","wb") do |file|
-                       file.puts fl.read
-                     end
-                  }
-         rescue
+                  targetfile = imagefolder + "/" + image_array[ccbidcol] + "_" + image_array[fnamecol] + "_" + image_array[lnamecol] + image_counter.to_s + ".jpg"
+                  File.write targetfile, open(image_array[imagecol]).read
+          rescue Exception => error
+
                   puts "Error downloading file -- skipping"
-         end
+                  pp error
+
+          end
             image_counter += 1
         end
             #if family image field not nil, not empty and "default", save it
             if !image_array[familyimagecol].nil? and image_array[familyimagecol] != "family_image" and image_array[familyimagecol] != "" and !(image_array[familyimagecol] =~ /default(.*)/)
-                puts "saving family image for #{image_array[fnamecol]} #{image_array[lnamecol]}:#{imagefolder}/#{image_array[famidcol]}_#{image_array[famnamecol]}: #{image_array[familyimagecol]}"
+                puts "saving family image for #{image_array[famidcol]} #{image_array[lnamecol]}:#{imagefolder}/#{image_array[famidcol]}_#{image_array[famnamecol]}: #{image_array[familyimagecol]}"
                 begin
-                      open(image_array[familyimagecol]) {|fl|
-                         File.open("#{famimagefolder}/#{image_array[famidcol]}_#{image_array[famnamecol]}","wb") do |file|
-                         file.puts fl.read
-                         end
-                      }
-                rescue
+                  targetfile = famimagefolder + "/" + image_array[famidcol] + "_" + image_array[famnamecol] + family_image_counter.to_s + ".jpg"
+                  File.write targetfile, open(image_array[familyimagecol]).read
+                rescue Exception => error
                   puts "Error downloading file -- skipping"
                 end
                 family_image_counter += 1
 
-                end
+            end
             if image_array[campuscol] != "campus"
               campus_array << [image_array[campuscol],""]
             end

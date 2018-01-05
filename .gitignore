@@ -13,6 +13,8 @@
 !/log/.keep
 !/tmp/.keep
 .env
+ccb-people-extract-test.rb
+check.csv
 /config/database.yml
 /config/secrets.yml
 /lib/archive/*
