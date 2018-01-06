@@ -37,8 +37,8 @@ unless File.directory?(famimagefolder)
   FileUtils.mkdir_p(famimagefolder)
 end
 #Column numbers mapping
-imagecol        = 88
-familyimagecol  = 89
+imagecol        = 87
+familyimagecol  = 88
 fnamecol        = 0
 lnamecol        = 1
 ccbidcol        = 21
@@ -108,8 +108,7 @@ else
           t["legal_first_name"][0].empty?   ? @legal_fname   = "" : @legal_fname    = t["legal_first_name"][0]
           t["salutation"][0].empty?         ? @salutation    = "" :  @salutation    = t["salutation"][0]
           t["suffix"][0].empty?             ? @suffix        = "" :  @suffix        = t["suffix"][0]
-          image = t["image"][0] ##
-
+          @image = t["image"][0] ##
           @allergy_string = ""
           t["allergies"].each do |allergy|
             if allergy.empty?
@@ -150,22 +149,30 @@ else
            t["addresses"][0]["address"].each do |a|
                case a["type"]
                 when "mailing"
-                  a["street_address"][0].empty? ? @mailing_street = ""  : @mailing_street = a["street_address"][0]
+                  a["street_address"][0].empty? ? @mailing_street = ""  : @mailing_street = a["street_address"][0].gsub(/[,]/ ,"")
+                  @mailing_street.gsub!(/[\n]/ ," ")
+                  @mailing_street.gsub!(/[\r]/ ," ")
                   a["city"][0].empty?           ? @mailing_city =  ""   : @mailing_city = a["city"][0]
                   a["state"][0].empty?          ? @mailing_state = ""   : @mailing_state = a["state"][0]
                   a["zip"][0].empty?            ? @mailing_zip = ""     : @mailing_zip = a["zip"][0]
                 when "home"
-                  a["street_address"][0].empty? ? @home_street = ""     : @home_street = a["street_address"][0]
+                  a["street_address"][0].empty? ? @home_street = ""     : @home_street = a["street_address"][0].gsub(/[,]/ ," ")
+                  @home_street.gsub!(/[\n]/ ," ")
+                  @home_street.gsub!(/[\r]/ ," ")
                   a["city"][0].empty?           ? @home_city =  ""      : @home_city = a["city"][0]
                   a["state"][0].empty?          ? @home_state = ""      : @home_state = a["state"][0]
                   a["zip"][0].empty?            ? @home_zip = ""        : @home_zip = a["zip"][0]
                 when "work"
-                  a["street_address"][0].empty? ? @work_street = ""     : @work_street = a["street_address"][0]
+                  a["street_address"][0].empty? ? @work_street = ""     : @work_street = a["street_address"][0].gsub(/[,]/ ," ")
+                  @work_street.gsub!(/[\n]/ ," ")
+                  @work_street.gsub!(/[\r]/ ," ")
                   a["city"][0].empty?           ? @work_city =  ""      : @work_city = a["city"][0]
                   a["state"][0].empty?          ? @work_state = ""      : @work_state = a["state"][0]
                   a["zip"][0].empty?            ? @work_zip = ""        : @work_zip = a["zip"][0]
                 when "other"
-                  a["street_address"][0].empty? ? @other_street = ""    : @other_street = a["street_address"][0]
+                  a["street_address"][0].empty? ? @other_street = ""    : @other_street = a["street_address"][0].gsub(/[,]/ ," ")
+                  @other_street.gsub!(/[\n]/ ," ")
+                  @other_street.gsub!(/[\r]/ ," ")
                   a["city"][0].empty?           ? @other_city =  ""     : @other_city = a["city"][0]
                   a["state"][0].empty?          ? @other_state = ""     : @other_state = a["state"][0]
                   a["zip"][0].empty?            ? @other_zip = ""       : @other_zip = a["zip"][0]
@@ -395,7 +402,7 @@ else
                   @udf_pulldown_5_value + "," +
                   @udf_pulldown_6_label + "," +
                   @udf_pulldown_6_value + "," +
-                  image                 + "," +
+                  @image                 + "," +
                   family_image
        @active ? status = "Active" : status = "Inactive"
        case @gender
@@ -497,15 +504,14 @@ else
       ccb_array2.each do |c|
         file.write("#{c}\n")
         image_array = c.split(',')
-
-
         if !image_array[imagecol].nil? and image_array[imagecol] != "family_image" and image_array[imagecol] != "" and !(image_array[imagecol] =~ /default(.*)/)
-          puts "Saving image for #{image_array[fnamecol]} #{image_array[lnamecol]}:#{imagefolder}/#{image_array[ccbidcol]}_#{image_array[fnamecol]}_#{image_array[lnamecol]}: #{image_array[imagecol]}"
+
+          puts "Saving image for #{image_array[fnamecol]} #{image_array[lnamecol]}"
           begin
-                  targetfile = imagefolder + "/" + image_array[ccbidcol] + "_" + image_array[fnamecol] + "_" + image_array[lnamecol] + image_counter.to_s + ".jpg"
+
+                  targetfile = imagefolder + "/" + image_array[ccbidcol] + "_" + image_array[fnamecol] + "_" + image_array[lnamecol] + "_" + image_counter.to_s + ".jpg"
                   File.write targetfile, open(image_array[imagecol]).read
           rescue Exception => error
-
                   puts "Error downloading file -- skipping"
                   pp error
 
@@ -514,9 +520,10 @@ else
         end
             #if family image field not nil, not empty and "default", save it
             if !image_array[familyimagecol].nil? and image_array[familyimagecol] != "family_image" and image_array[familyimagecol] != "" and !(image_array[familyimagecol] =~ /default(.*)/)
-                puts "saving family image for #{image_array[famidcol]} #{image_array[lnamecol]}:#{imagefolder}/#{image_array[famidcol]}_#{image_array[famnamecol]}: #{image_array[familyimagecol]}"
+                puts "saving family image for #{image_array[famidcol]} #{image_array[lnamecol]}"
                 begin
-                  targetfile = famimagefolder + "/" + image_array[famidcol] + "_" + image_array[famnamecol] + family_image_counter.to_s + ".jpg"
+
+                  targetfile = famimagefolder + "/" + image_array[famidcol] + "_" + image_array[famnamecol] + "_" + family_image_counter.to_s + ".jpg"
                   File.write targetfile, open(image_array[familyimagecol]).read
                 rescue Exception => error
                   puts "Error downloading file -- skipping"
