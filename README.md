@@ -154,4 +154,8 @@ These stub scripts are as follows:
 
 ***
 
-Please let me know any issues you have running these — while not perfect, the goal was to make the exit process from CCB less painful than it was for us!
+Apparently, these scripts are a hit, and numerous churches have used these to migrate their data. Awesome! While they are not perfect, the goal was to make the exit process from CCB less painful than it was for us!
+
+I have also worked with a number of churches that have run into issue in running the scripts, usually having to do with getting Ruby or the Gems running, permissions, and other OS level issues. Running on Windows 10 seems to be a particular issue.
+
+If you are running into these kinds of issues, or dont have the technical skills to get this working, I can provide consulting services to support your export. The fee is small, and ranges based on the scale of data you have in CCB -- the resources and time required can be different for churches of 100's vs 1000's. You can contact me about these services at <bottomshelvz@gmail.com>. Please note that this will require you create a CCB API user (with all permissions) for me to use, which can be deleted immediately after the extracts are completed and verified on your side. 
