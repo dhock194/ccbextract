@@ -121,6 +121,8 @@ else
               end
             end
           end
+          # escape commas in allergy string
+          @allergy_string = "\"" + @allergy_string + "\""
           @noallergies = t["confirmed_no_allergies"][0] ##
           t["emergency_contact_name"][0].empty?     ? @emergency_contact = "" : @emergency_contact = t["emergency_contact_name"][0]  ##
           t["anniversary"][0].empty?        ? @anniversary       = "" : @anniversary      = t["anniversary"][0]
