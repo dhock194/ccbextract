@@ -18,11 +18,11 @@ ccb_service = "individual_search"
 ccb_search_parm = "last_name"
 ccb_array = []
 ccb_array2 = []
-ccbheader = "fname,lname,mname,salutation,legal_fname,suffix,gender,martial_status,birthday,email,emails,allergy_string,noallergies,anniversary,baptized,family_id,family,family_position,emergency_contact,campus,campus_id,ccb_id,deceased,membership_type,membership_date,membership_end,receive_email_from_church,active,created_at,modified_at,mailing_street,mailing_city,mailing_state,mailing_zip,home_street,home_city,home_state,home_zip,work_street,work_city,work_state,work_zip,other_street,other_city,other_state,other_zip,contact_phone,home_phone,work_phone,mobile_phone,mobile_carrier,udf_text_1_label,udf_text_1_value,udf_text_2_label,udf_text_2_value,udf_text_3_label,udf_text_3_value,udf_text_4_label,udf_text_4_value,udf_text_5_label,udf_text_5_value,udf_text_6_label,udf_text_6_value,udf_date_1_label,udf_date_1_value,udf_date_2_label,udf_date_2_value,udf_date_3_label,udf_date_3_value,udf_date_4_label,udf_date_4_value,udf_date_5_label,udf_date_5_value,udf_date_6_label,udf_date_6_value,udf_pulldown_1_label,udf_pulldown_1_value,udf_pulldown_2_label,udf_pulldown_2_value,udf_pulldown_3_label,udf_pulldown_3_value,udf_pulldown_4_label,udf_pulldown_4_value,udf_pulldown_5_label,udf_pulldown_5_value,udf_pulldown_6_label,udf_pulldown_6_value,image,family_image"
+ccbheader = "fname,lname,mname,salutation,legal_fname,suffix,gender,martial_status,birthday,email,emails,allergy_string,noallergies,anniversary,baptized,family_id,family,family_position,emergency_contact,campus,campus_id,ccb_id,deceased,membership_type,membership_date,membership_end,receive_email_from_church,active,created_at,modified_at,mailing_street,mailing_city,mailing_state,mailing_zip,home_street,home_city,home_state,home_zip,work_street,work_city,work_state,work_zip,other_street,other_city,other_state,other_zip,contact_phone,home_phone,work_phone,mobile_phone,mobile_carrier,udf_text_1_label,udf_text_1_value,udf_text_2_label,udf_text_2_value,udf_text_3_label,udf_text_3_value,udf_text_4_label,udf_text_4_value,udf_text_5_label,udf_text_5_value,udf_text_6_label,udf_text_6_value,udf_text_7_label,udf_text_7_value,udf_text_8_label,udf_text_8_value,udf_text_9_label,udf_text_9_value,udf_text_10_label,udf_text_10_value,udf_text_11_label,udf_text_11_value,udf_text_12_label,udf_text_12_value,udf_text_13_label,udf_text_13_value,udf_text_14_label,udf_text_14_value,udf_text_15_label,udf_text_15_value,udf_text_16_label,udf_text_16_value,udf_text_17_label,udf_text_17_value,udf_text_18_label,udf_text_18_value,udf_text_19_label,udf_text_19_value,udf_text_20_label,udf_text_20_value,udf_date_1_label,udf_date_1_value,udf_date_2_label,udf_date_2_value,udf_date_3_label,udf_date_3_value,udf_date_4_label,udf_date_4_value,udf_date_5_label,udf_date_5_value,udf_date_6_label,udf_date_6_value,udf_pulldown_1_label,udf_pulldown_1_value,udf_pulldown_2_label,udf_pulldown_2_value,udf_pulldown_3_label,udf_pulldown_3_value,udf_pulldown_4_label,udf_pulldown_4_value,udf_pulldown_5_label,udf_pulldown_5_value,udf_pulldown_6_label,udf_pulldown_6_value,image,family_image"
 ccb_array << ccbheader
 pco_array = []
 pco_header =
-"Name Prefix,Given Name,First Name,Middle Name,Last Name,Name Suffix,Birthdate,Anniversary,Gender,Medical,Marital Status,Status,Membership,Home Address Street Line 1,Home Address City,Home Address State,Home Address Zip,Work Address Street Line 1,Work Address City,Work Address State,Work Address Zip,Other Address Street Line 1,Other Address City,Other Address State,Other Address Zip,Mobile Phone Number,Home Phone Number,Work Phone Number,Other Phone Number,Mobile Carrier,Home Email,Household ID,Campus,pco_text_1_label,pco_text_1_value,pco_text_2_label,pco_text_2_value,pco_text_3_label,pco_text_3_value,pco_text_4_label,pco_text_4_value,pco_text_5_label,pco_text_5_value,pco_text_6_label,pco_text_6_value,pco_date_1_label,pco_date_1_value,pco_date_2_label,pco_date_2_value,pco_date_3_label,pco_date_3_value,pco_date_4_label,pco_date_4_value,pco_date_5_label,pco_date_5_value,pco_date_6_label,pco_date_6_value,pco_pulldown_1_label,pco_pulldown_1_value,pco_pulldown_2_label,pco_pulldown_2_value,pco_pulldown_3_label,pco_pulldown_3_value,pco_pulldown_4_label,pco_pulldown_4_value,pco_pulldown_5_label,pco_pulldown_5_value,pco_pulldown_6_label,pco_pulldown_6_value"
+"Name Prefix,Given Name,First Name,Middle Name,Last Name,Name Suffix,Birthdate,Anniversary,Gender,Medical,Marital Status,Status,Membership,Home Address Street Line 1,Home Address City,Home Address State,Home Address Zip,Work Address Street Line 1,Work Address City,Work Address State,Work Address Zip,Other Address Street Line 1,Other Address City,Other Address State,Other Address Zip,Mobile Phone Number,Home Phone Number,Work Phone Number,Other Phone Number,Mobile Carrier,Home Email,Household ID,Campus,pco_text_1_value,pco_text_2_label,pco_text_2_value,pco_text_3_label,pco_text_3_value,pco_text_4_label,pco_text_4_value,pco_text_5_label,pco_text_5_value,pco_text_6_label,pco_text_6_value,pco_text_7_label,pco_text_7_value,pco_text_8_label,pco_text_8_value,pco_text_9_label,pco_text_9_value,pco_text_10_label,pco_text_10_value,pco_text_11_label,pco_text_11_value,pco_text_12_label,pco_text_12_value,pco_text_13_label,pco_text_13_value,pco_text_14_label,pco_text_14_value,pco_text_15_label,pco_text_15_value,pco_text_16_label,pco_text_16_value,pco_text_17_label,pco_text_17_value,pco_text_18_label,pco_text_18_value,pco_text_19_label,pco_text_19_value,pco_date_1_label,pco_date_1_value,pco_date_2_label,pco_date_2_value,pco_date_3_label,pco_date_3_value,pco_date_4_label,pco_date_4_value,pco_date_5_label,pco_date_5_value,pco_date_6_label,pco_date_6_value,pco_pulldown_1_label,pco_pulldown_1_value,pco_pulldown_2_label,pco_pulldown_2_value,pco_pulldown_3_label,pco_pulldown_3_value,pco_pulldown_4_label,pco_pulldown_4_value,pco_pulldown_5_label,pco_pulldown_5_value,pco_pulldown_6_label,pco_pulldown_6_value"
 pco_array << pco_header
 mainfolder = "output"
 imagefolder = "#{mainfolder}/ccbextract_images"
@@ -82,7 +82,7 @@ else
   puts("Beginning extraction process ....")
   # Extraction mode A - Z
   ("A".."Z").each do |letter|
-  #letter = "H"
+  #letter = "Q"
         puts "Extracting last names starting in #{letter}..."
         target_url = "#{ccb_url}" + "?srv=" + "#{ccb_service}" + "&" + "#{ccb_search_parm}" + "=" + "#{letter}"
         get = Curl::Easy.new(target_url)
@@ -212,6 +212,34 @@ else
         @udf_text_5_value = ""
         @udf_text_6_label = ""
         @udf_text_6_value = ""
+        @udf_text_7_label = ""
+        @udf_text_7_value = ""
+        @udf_text_8_label = ""
+        @udf_text_8_value = ""
+        @udf_text_9_label = ""
+        @udf_text_9_value = ""
+        @udf_text_10_label = ""
+        @udf_text_10_value = ""
+        @udf_text_11_label = ""
+        @udf_text_11_value = ""
+        @udf_text_12_label = ""
+        @udf_text_12_value = ""
+        @udf_text_13_label = ""
+        @udf_text_13_value = ""
+        @udf_text_14_label = ""
+        @udf_text_14_value = ""
+        @udf_text_15_label = ""
+        @udf_text_15_value = ""
+        @udf_text_16_label = ""
+        @udf_text_16_value = ""
+        @udf_text_17_label = ""
+        @udf_text_17_value = ""
+        @udf_text_18_label = ""
+        @udf_text_18_value = ""
+        @udf_text_19_label = ""
+        @udf_text_19_value = ""
+        @udf_text_20_label = ""
+        @udf_text_20_value = ""
             if !t["user_defined_text_fields"][0]["user_defined_text_field"].nil?
                 t["user_defined_text_fields"][0]["user_defined_text_field"].each do |ctext|
                       case ctext["name"][0]
@@ -233,6 +261,48 @@ else
                           when "udf_text_6"
                             ctext["label"].nil?   ?   @udf_text_6_label = ""    : @udf_text_6_label = ctext["label"][0]
                             ctext["text"].nil?    ?   @udf_text_6_value = ""    : @udf_text_6_value = ctext["text"][0]
+                          when "udf_text_7"
+                            ctext["label"].nil?   ?   @udf_text_7_label = ""    : @udf_text_7_label = ctext["label"][0]
+                            ctext["text"].nil?    ?   @udf_text_7_value = ""    : @udf_text_7_value = ctext["text"][0]
+                          when "udf_text_8"
+                            ctext["label"].nil?   ?   @udf_text_8_label = ""    : @udf_text_8_label = ctext["label"][0]
+                            ctext["text"].nil?    ?   @udf_text_8_value = ""    : @udf_text_8_value = ctext["text"][0]
+                          when "udf_text_9"
+                            ctext["label"].nil?   ?   @udf_text_9_label = ""    : @udf_text_9_label = ctext["label"][0]
+                            ctext["text"].nil?    ?   @udf_text_9_value = ""    : @udf_text_9_value = ctext["text"][0]
+                          when "udf_text_10"
+                            ctext["label"].nil?   ?   @udf_text_10_label = ""    : @udf_text_10_label = ctext["label"][0]
+                            ctext["text"].nil?    ?   @udf_text_10_value = ""    : @udf_text_10_value = ctext["text"][0]
+                          when "udf_text_11"
+                            ctext["label"].nil?   ?   @udf_text_11_label = ""    : @udf_text_11_label = ctext["label"][0]
+                            ctext["text"].nil?    ?   @udf_text_11_value = ""    : @udf_text_11_value = ctext["text"][0]
+                          when "udf_text_12"
+                            ctext["label"].nil?   ?   @udf_text_12_label = ""    : @udf_text_12_label = ctext["label"][0]
+                            ctext["text"].nil?    ?   @udf_text_12_value = ""    : @udf_text_12_value = ctext["text"][0]
+                          when "udf_text_13"
+                            ctext["label"].nil?   ?   @udf_text_13_label = ""    : @udf_text_13_label = ctext["label"][0]
+                            ctext["text"].nil?    ?   @udf_text_13_value = ""    : @udf_text_13_value = ctext["text"][0]
+                          when "udf_text_14"
+                            ctext["label"].nil?   ?   @udf_text_14_label = ""    : @udf_text_14_label = ctext["label"][0]
+                            ctext["text"].nil?    ?   @udf_text_14_value = ""    : @udf_text_14_value = ctext["text"][0]
+                          when "udf_text_15"
+                            ctext["label"].nil?   ?   @udf_text_15_label = ""    : @udf_text_15_label = ctext["label"][0]
+                            ctext["text"].nil?    ?   @udf_text_15_value = ""    : @udf_text_15_value = ctext["text"][0]
+                          when "udf_text_16"
+                            ctext["label"].nil?   ?   @udf_text_16_label = ""    : @udf_text_16_label = ctext["label"][0]
+                            ctext["text"].nil?    ?   @udf_text_16_value = ""    : @udf_text_16_value = ctext["text"][0]
+                          when "udf_text_17"
+                            ctext["label"].nil?   ?   @udf_text_17_label = ""    : @udf_text_17_label = ctext["label"][0]
+                            ctext["text"].nil?    ?   @udf_text_17_value = ""    : @udf_text_17_value = ctext["text"][0]
+                          when "udf_text_18"
+                            ctext["label"].nil?   ?   @udf_text_18_label = ""    : @udf_text_18_label = ctext["label"][0]
+                            ctext["text"].nil?    ?   @udf_text_18_value = ""    : @udf_text_18_value = ctext["text"][0]
+                          when "udf_text_19"
+                            ctext["label"].nil?   ?   @udf_text_19_label = ""    : @udf_text_19_label = ctext["label"][0]
+                            ctext["text"].nil?    ?   @udf_text_19_value = ""    : @udf_text_19_value = ctext["text"][0]
+                          when "udf_text_20"
+                            ctext["label"].nil?   ?   @udf_text_20_label = ""    : @udf_text_20_label = ctext["label"][0]
+                            ctext["text"].nil?    ?   @udf_text_20_value = ""    : @udf_text_20_value = ctext["text"][0]
                           else
                       end
                 end
@@ -255,27 +325,27 @@ else
                       case cdate["name"][0]
                           when "udf_date_1"
                             cdate["label"].nil?   ?   @udf_date_1_label = ""    : @udf_date_1_label = cdate["label"][0]
-                            cdate["text"].nil?    ?   @udf_date_1_value = ""    : @udf_date_1_value = cdate["text"][0]
+                            cdate["date"].nil?    ?   @udf_date_1_value = ""    : @udf_date_1_value = cdate["date"][0]
                           when "udf_date_2"
                             cdate["label"].nil?   ?   @udf_date_2_label = ""    : @udf_date_2_label = cdate["label"][0]
-                            cdate["text"].nil?    ?   @udf_date_2_value = ""    : @udf_date_2_value = cdate["text"][0]
+                            cdate["date"].nil?    ?   @udf_date_2_value = ""    : @udf_date_2_value = cdate["date"][0]
                           when "udf_date_3"
                             cdate["label"].nil?   ?   @udf_date_3_label = ""    : @udf_date_3_label = cdate["label"][0]
-                            cdate["text"].nil?    ?   @udf_date_3_value = ""    : @udf_date_3_value = cdate["text"][0]
+                            cdate["date"].nil?    ?   @udf_date_3_value = ""    : @udf_date_3_value = cdate["date"][0]
                           when "udf_date_4"
                             cdate["label"].nil?   ?   @udf_date_4_label = ""    : @udf_date_4_label = cdate["label"][0]
-                            cdate["text"].nil?    ?   @udf_date_4_value = ""    : @udf_date_4_value = cdate["text"][0]
+                            cdate["date"].nil?    ?   @udf_date_4_value = ""    : @udf_date_4_value = cdate["date"][0]
                           when "udf_date_5"
                             cdate["label"].nil?   ?   @udf_date_5_label = ""    : @udf_date_5_label = cdate["label"][0]
-                            cdate["text"].nil?    ?   @udf_date_5_value = ""    : @udf_date_5_value = cdate["text"][0]
+                            cdate["date"].nil?    ?   @udf_date_5_value = ""    : @udf_date_5_value = cdate["date"][0]
                           when "udf_date_6"
                             cdate["label"].nil?   ?   @udf_date_6_label = ""    : @udf_date_6_label = cdate["label"][0]
-                            cdate["text"].nil?    ?   @udf_date_6_value = ""    : @udf_date_6_value = cdate["text"][0]
+                            cdate["date"].nil?    ?   @udf_date_6_value = ""    : @udf_date_6_value = cdate["date"][0]
                           else
                       end
                     end
               end
-              #UDF Date Fields
+              #UDF Pulldown Fields
                 @udf_pulldown_1_label = ""
                 @udf_pulldown_1_value = ""
                 @udf_pulldown_2_label = ""
@@ -293,22 +363,22 @@ else
                         case cpull["name"][0]
                             when "udf_pulldown_1"
                               cpull["label"].nil?   ?   @udf_pulldown_1_label = ""    : @udf_pulldown_1_label = cpull["label"][0]
-                              cpull["text"].nil?    ?   @udf_pulldown_1_value = ""    : @udf_pulldown_1_value = cpull["text"][0]
+                              cpull["selection"][0]["content"].nil?    ?   @udf_pulldown_1_value = ""    : @udf_pulldown_1_value = cpull["selection"][0]["content"]
                             when "udf_pulldown_2"
                               cpull["label"].nil?   ?   @udf_pulldown_2_label = ""    : @udf_pulldown_2_label = cpull["label"][0]
-                              cpull["text"].nil?    ?   @udf_pulldown_2_value = ""    : @udf_pulldown_2_value = cpull["text"][0]
+                              cpull["selection"][0]["content"].nil?    ?   @udf_pulldown_2_value = ""    : @udf_pulldown_2_value = cpull["selection"][0]["content"]
                             when "udf_pulldown_3"
                               cpull["label"].nil?   ?   @udf_pulldown_3_label = ""    : @udf_pulldown_3_label = cpull["label"][0]
-                              cpull["text"].nil?    ?   @udf_pulldown_3_value = ""    : @udf_pulldown_3_value = cpull["text"][0]
+                              cpull["selection"][0]["content"].nil?    ?   @udf_pulldown_3_value = ""    : @udf_pulldown_3_value = cpull["selection"][0]["content"]
                             when "udf_pulldown_4"
                               cpull["label"].nil?   ?   @udf_pulldown_4_label = ""    : @udf_pulldown_4_label = cpull["label"][0]
-                              cpull["text"].nil?    ?   @udf_pulldown_4_value = ""    : @udf_pulldown_4_value = cpull["text"][0]
+                              cpull["selection"][0]["content"].nil?    ?   @udf_pulldown_4_value = ""    : @udf_pulldown_4_value = cpull["selection"][0]["content"]
                             when "udf_pulldown_5"
                               cpull["label"].nil?   ?   @udf_pulldown_5_label = ""    : @udf_pulldown_5_label = cpull["label"][0]
-                              cpull["text"].nil?    ?   @udf_pulldown_5_value = ""    : @udf_pulldown_5_value = cpull["text"][0]
+                              cpull["selection"][0]["content"].nil?    ?   @udf_pulldown_5_value = ""    : @udf_pulldown_5_value = cpull["selection"][0]["content"]
                             when "udf_pulldown_6"
                               cpull["label"].nil?   ?   @udf_pulldown_6_label = ""    : @udf_pulldown_6_label = cpull["label"][0]
-                              cpull["text"].nil?    ?   @udf_pulldown_6_value = ""    : @udf_pulldown_6_value = cpull["text"][0]
+                              cpull["selection"][0]["content"].nil?    ?   @udf_pulldown_6_value = ""    : @udf_pulldown_6_value = cpull["selection"][0]["content"]
                             else
                         end
                       end
@@ -378,6 +448,34 @@ else
                   @udf_text_5_value + "," +
                   @udf_text_6_label + "," +
                   @udf_text_6_value + "," +
+                  @udf_text_7_label + "," +
+                  @udf_text_7_value + "," +
+                  @udf_text_8_label + "," +
+                  @udf_text_8_value + "," +
+                  @udf_text_9_label + "," +
+                  @udf_text_9_value + "," +
+                  @udf_text_10_label + "," +
+                  @udf_text_10_value + "," +
+                  @udf_text_11_label + "," +
+                  @udf_text_11_value + "," +
+                  @udf_text_12_label + "," +
+                  @udf_text_12_value + "," +
+                  @udf_text_13_label + "," +
+                  @udf_text_13_value + "," +
+                  @udf_text_14_label + "," +
+                  @udf_text_14_value + "," +
+                  @udf_text_15_label + "," +
+                  @udf_text_15_value + "," +
+                  @udf_text_16_label + "," +
+                  @udf_text_16_value + "," +
+                  @udf_text_17_label + "," +
+                  @udf_text_17_value + "," +
+                  @udf_text_18_label + "," +
+                  @udf_text_18_value + "," +
+                  @udf_text_19_label + "," +
+                  @udf_text_19_value + "," +
+                  @udf_text_20_label + "," +
+                  @udf_text_20_value + "," +
                   @udf_date_1_label + "," +
                   @udf_date_1_value + "," +
                   @udf_date_2_label + "," +
@@ -447,18 +545,46 @@ else
                   @email  + "," +
                   @family_id  + "," +
                   @campus  + "," +
-                  @udf_text_1_label  + "," +
-                  @udf_text_1_value  + "," +
-                  @udf_text_2_label  + "," +
-                  @udf_text_2_value  + "," +
-                  @udf_text_3_label  + "," +
-                  @udf_text_3_value  + "," +
-                  @udf_text_4_label  + "," +
-                  @udf_text_4_value  + "," +
-                  @udf_text_5_label  + "," +
-                  @udf_text_5_value  + "," +
-                  @udf_text_6_label  + "," +
-                  @udf_text_6_value  + "," +
+                  @udf_text_1_label + "," +
+                  @udf_text_1_value + "," +
+                  @udf_text_2_label + "," +
+                  @udf_text_2_value + "," +
+                  @udf_text_3_label + "," +
+                  @udf_text_3_value + "," +
+                  @udf_text_4_label + "," +
+                  @udf_text_4_value + "," +
+                  @udf_text_5_label + "," +
+                  @udf_text_5_value + "," +
+                  @udf_text_6_label + "," +
+                  @udf_text_6_value + "," +
+                  @udf_text_7_label + "," +
+                  @udf_text_7_value + "," +
+                  @udf_text_8_label + "," +
+                  @udf_text_8_value + "," +
+                  @udf_text_9_label + "," +
+                  @udf_text_9_value + "," +
+                  @udf_text_10_label + "," +
+                  @udf_text_10_value + "," +
+                  @udf_text_11_label + "," +
+                  @udf_text_11_value + "," +
+                  @udf_text_12_label + "," +
+                  @udf_text_12_value + "," +
+                  @udf_text_13_label + "," +
+                  @udf_text_13_value + "," +
+                  @udf_text_14_label + "," +
+                  @udf_text_14_value + "," +
+                  @udf_text_15_label + "," +
+                  @udf_text_15_value + "," +
+                  @udf_text_16_label + "," +
+                  @udf_text_16_value + "," +
+                  @udf_text_17_label + "," +
+                  @udf_text_17_value + "," +
+                  @udf_text_18_label + "," +
+                  @udf_text_18_value + "," +
+                  @udf_text_19_label + "," +
+                  @udf_text_19_value + "," +
+                  @udf_text_20_label + "," +
+                  @udf_text_20_value + "," +
                   @udf_date_1_label  + "," +
                   @udf_date_1_value  + "," +
                   @udf_date_2_label  + "," +
@@ -518,7 +644,7 @@ else
           end
             image_counter += 1
         end
-            #if family image field not nil, not empty and "default", save it
+            # if family image field not nil, not empty and "default", save it
             if !image_array[familyimagecol].nil? and image_array[familyimagecol] != "family_image" and image_array[familyimagecol] != "" and !(image_array[familyimagecol] =~ /default(.*)/)
                 puts "saving family image for #{image_array[famidcol]} #{image_array[lnamecol]}"
                 begin
@@ -554,23 +680,23 @@ else
   puts "Downloaded family image count: #{family_image_counter}"
 end
 
-if !campus_array.empty?
-    campus_count = campus_array.count
-    puts "******************************************************"
-    puts "Campus names extracted from CCB were:"
-    i = 0
-    campus_array.each do |campus|
-      i += 1
-      puts "Campus #{i}: #{campus[0]}"
-    end
-    puts ""
-    puts "If you would like to modify these before PCO import, easiest method is to "
-    puts "load the pcoimport csv into Excel or Google Sheets, and find/replace each "
-    puts "campus name, then resave it as a csv, prior to importing into PCO"
+    if !campus_array.empty?
+        campus_count = campus_array.count
+        puts "******************************************************"
+        puts "Campus names extracted from CCB were:"
+        i = 0
+        campus_array.each do |campus|
+          i += 1
+          puts "Campus #{i}: #{campus[0]}"
+        end
+        puts ""
+        puts "If you would like to modify these before PCO import, easiest method is to "
+        puts "load the pcoimport csv into Excel or Google Sheets, and find/replace each "
+        puts "campus name, then resave it as a csv, prior to importing into PCO"
 
-    puts ""
-    puts "All of the output from the script will be located in an /output subfolder"
-    puts "within the folder you ran the script"
+        puts ""
+        puts "All of the output from the script will be located in an /output subfolder"
+        puts "within the folder you ran the script"
 
     done = FALSE
   end

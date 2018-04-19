@@ -63,7 +63,8 @@ puts "******************************************************"
           approval_status = e["approval_status"][0]["content"]
           #!e["exceptions"][0].empty? ? exceptions = e["exceptions"][0] : exceptions = ""
           group = e["group"][0]["content"]
-          organizer = e["organizer"][0]["content"]
+          ########
+          !e["organizer"][0]["content"].nil? ? organizer = e["organizer"][0]["content"] : organizer = ""
           !["phone"][0]["content"].nil? ? phone = e["phone"][0]["content"] : phone = ""
           if !e["location"][0].empty?
               !e["location"][0]["name"][0].empty? ? loc_name = e["location"][0]["name"][0] : loc_name = ""
@@ -177,7 +178,6 @@ puts "******************************************************"
     puts "******************************************************"
     puts "Outputting CCB export csv file..."
         ccb_array.each do |p|
-          pp p
           file.write("#{p}\n")
           recordcount += 1
         end
