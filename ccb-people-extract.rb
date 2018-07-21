@@ -18,11 +18,12 @@ ccb_service = "individual_search"
 ccb_search_parm = "last_name"
 ccb_array = []
 ccb_array2 = []
-ccbheader = "fname,lname,mname,salutation,legal_fname,suffix,gender,martial_status,birthday,email,emails,allergy_string,noallergies,anniversary,baptized,family_id,family,family_position,emergency_contact,campus,campus_id,ccb_id,deceased,membership_type,membership_date,membership_end,receive_email_from_church,active,created_at,modified_at,mailing_street,mailing_city,mailing_state,mailing_zip,home_street,home_city,home_state,home_zip,work_street,work_city,work_state,work_zip,other_street,other_city,other_state,other_zip,contact_phone,home_phone,work_phone,mobile_phone,mobile_carrier,udf_text_1_label,udf_text_1_value,udf_text_2_label,udf_text_2_value,udf_text_3_label,udf_text_3_value,udf_text_4_label,udf_text_4_value,udf_text_5_label,udf_text_5_value,udf_text_6_label,udf_text_6_value,udf_text_7_label,udf_text_7_value,udf_text_8_label,udf_text_8_value,udf_text_9_label,udf_text_9_value,udf_text_10_label,udf_text_10_value,udf_text_11_label,udf_text_11_value,udf_text_12_label,udf_text_12_value,udf_text_13_label,udf_text_13_value,udf_text_14_label,udf_text_14_value,udf_text_15_label,udf_text_15_value,udf_text_16_label,udf_text_16_value,udf_text_17_label,udf_text_17_value,udf_text_18_label,udf_text_18_value,udf_text_19_label,udf_text_19_value,udf_text_20_label,udf_text_20_value,udf_date_1_label,udf_date_1_value,udf_date_2_label,udf_date_2_value,udf_date_3_label,udf_date_3_value,udf_date_4_label,udf_date_4_value,udf_date_5_label,udf_date_5_value,udf_date_6_label,udf_date_6_value,udf_pulldown_1_label,udf_pulldown_1_value,udf_pulldown_2_label,udf_pulldown_2_value,udf_pulldown_3_label,udf_pulldown_3_value,udf_pulldown_4_label,udf_pulldown_4_value,udf_pulldown_5_label,udf_pulldown_5_value,udf_pulldown_6_label,udf_pulldown_6_value,image,family_image"
+ccbheader = "fname,lname,mname,salutation,legal_fname,suffix,gender,martial_status,birthday,email,emails,allergy_string,noallergies,anniversary,baptized,family_id,family,family_position,emergency_contact,campus,campus_id,ccb_id,deceased,membership_type,membership_date,membership_end,receive_email_from_church,active,created_at,modified_at,mailing_street,mailing_city,mailing_state,mailing_zip,home_street,home_city,home_state,home_zip,work_street,work_city,work_state,work_zip,other_street,other_city,other_state,other_zip,contact_phone,home_phone,work_phone,mobile_phone,mobile_carrier,udf_text_1_label,udf_text_1_value,udf_text_2_label,udf_text_2_value,udf_text_3_label,udf_text_3_value,udf_text_4_label,udf_text_4_value,udf_text_5_label,udf_text_5_value,udf_text_6_label,udf_text_6_value,udf_text_7_label,udf_text_7_value,udf_text_8_label,udf_text_8_value,udf_text_9_label,udf_text_9_value,udf_text_10_label,udf_text_10_value,udf_text_11_label,udf_text_11_value,udf_text_12_label,udf_text_12_value,udf_text_13_label,udf_text_13_value,udf_text_14_label,udf_text_14_value,udf_text_15_label,udf_text_15_value,udf_text_16_label,udf_text_16_value,udf_text_17_label,udf_text_17_value,udf_text_18_label,udf_text_18_value,udf_text_19_label,udf_text_19_value,udf_text_20_label,udf_text_20_value,udf_date_1_label,udf_date_1_value,udf_date_2_label,udf_date_2_value,udf_date_3_label,udf_date_3_value,udf_date_4_label,udf_date_4_value,udf_date_5_label,udf_date_5_value,udf_date_6_label,udf_date_6_value,udf_pulldown_1_label,udf_pulldown_1_value,udf_pulldown_2_label,udf_pulldown_2_value,udf_pulldown_3_label,udf_pulldown_3_value,udf_pulldown_4_label,udf_pulldown_4_value,udf_pulldown_5_label,udf_pulldown_5_value,udf_pulldown_6_label,udf_pulldown_6_value"
 ccb_array << ccbheader
 pco_array = []
+pco_array2 = []
 pco_header =
-"Name Prefix,Given Name,First Name,Middle Name,Last Name,Name Suffix,Birthdate,Anniversary,Gender,Medical,Marital Status,Status,Membership,Home Address Street Line 1,Home Address City,Home Address State,Home Address Zip,Work Address Street Line 1,Work Address City,Work Address State,Work Address Zip,Other Address Street Line 1,Other Address City,Other Address State,Other Address Zip,Mobile Phone Number,Home Phone Number,Work Phone Number,Other Phone Number,Mobile Carrier,Home Email,Household ID,Campus,pco_text_1_value,pco_text_2_label,pco_text_2_value,pco_text_3_label,pco_text_3_value,pco_text_4_label,pco_text_4_value,pco_text_5_label,pco_text_5_value,pco_text_6_label,pco_text_6_value,pco_text_7_label,pco_text_7_value,pco_text_8_label,pco_text_8_value,pco_text_9_label,pco_text_9_value,pco_text_10_label,pco_text_10_value,pco_text_11_label,pco_text_11_value,pco_text_12_label,pco_text_12_value,pco_text_13_label,pco_text_13_value,pco_text_14_label,pco_text_14_value,pco_text_15_label,pco_text_15_value,pco_text_16_label,pco_text_16_value,pco_text_17_label,pco_text_17_value,pco_text_18_label,pco_text_18_value,pco_text_19_label,pco_text_19_value,pco_date_1_label,pco_date_1_value,pco_date_2_label,pco_date_2_value,pco_date_3_label,pco_date_3_value,pco_date_4_label,pco_date_4_value,pco_date_5_label,pco_date_5_value,pco_date_6_label,pco_date_6_value,pco_pulldown_1_label,pco_pulldown_1_value,pco_pulldown_2_label,pco_pulldown_2_value,pco_pulldown_3_label,pco_pulldown_3_value,pco_pulldown_4_label,pco_pulldown_4_value,pco_pulldown_5_label,pco_pulldown_5_value,pco_pulldown_6_label,pco_pulldown_6_value"
+"Name Prefix,remote_id,Given Name,First Name,Middle Name,Last Name,Name Suffix,Birthdate,Anniversary,Gender,Medical,Marital Status,Status,Membership,Home Address Street Line 1,Home Address City,Home Address State,Home Address Zip,Work Address Street Line 1,Work Address City,Work Address State,Work Address Zip,Other Address Street Line 1,Other Address City,Other Address State,Other Address Zip,Mobile Phone Number,Home Phone Number,Work Phone Number,Other Phone Number,Mobile Carrier,Home Email,Household ID,Campus,pco_text_1_value,pco_text_2_label,pco_text_2_value,pco_text_3_label,pco_text_3_value,pco_text_4_label,pco_text_4_value,pco_text_5_label,pco_text_5_value,pco_text_6_label,pco_text_6_value,pco_text_7_label,pco_text_7_value,pco_text_8_label,pco_text_8_value,pco_text_9_label,pco_text_9_value,pco_text_10_label,pco_text_10_value,pco_text_11_label,pco_text_11_value,pco_text_12_label,pco_text_12_value,pco_text_13_label,pco_text_13_value,pco_text_14_label,pco_text_14_value,pco_text_15_label,pco_text_15_value,pco_text_16_label,pco_text_16_value,pco_text_17_label,pco_text_17_value,pco_text_18_label,pco_text_18_value,pco_text_19_label,pco_text_19_value,pco_date_1_label,pco_date_1_value,pco_date_2_label,pco_date_2_value,pco_date_3_label,pco_date_3_value,pco_date_4_label,pco_date_4_value,pco_date_5_label,pco_date_5_value,pco_date_6_label,pco_date_6_value,pco_pulldown_1_label,pco_pulldown_1_value,pco_pulldown_2_label,pco_pulldown_2_value,pco_pulldown_3_label,pco_pulldown_3_value,pco_pulldown_4_label,pco_pulldown_4_value,pco_pulldown_5_label,pco_pulldown_5_value,pco_pulldown_6_label,pco_pulldown_6_value"
 pco_array << pco_header
 mainfolder = "output"
 imagefolder = "#{mainfolder}/ccbextract_images"
@@ -46,9 +47,9 @@ famidcol        = 15
 famnamecol      = 16
 campus_array = []
 campuscol       = 19
-datestamp = Time.now
-ccbfile = "output/ccbextract_#{datestamp.strftime("%y%m%d%H%M")}.csv"
-pcofile = "output/pcoimport_#{datestamp.strftime("%y%m%d%H%M")}.csv"
+datestamp = Time.now.strftime("%Y%m%d_%H%M")
+ccbfile = "#{mainfolder}/ccbextract_#{datestamp}.csv"
+pcofile = "#{mainfolder}/pcoimport_#{datestamp}.csv"
 
 
 if ARGV.count == 1 and ARGV.first == "test"
@@ -82,7 +83,6 @@ else
   puts("Beginning extraction process ....")
   # Extraction mode A - Z
   ("A".."Z").each do |letter|
-  #letter = "Q"
         puts "Extracting last names starting in #{letter}..."
         target_url = "#{ccb_url}" + "?srv=" + "#{ccb_service}" + "&" + "#{ccb_search_parm}" + "=" + "#{letter}"
         get = Curl::Easy.new(target_url)
@@ -93,6 +93,8 @@ else
         hashdata = XmlSimple.xml_in get.body_str
         person = hashdata["response"][0]["individuals"][0]["individual"]
         person.each do |t|
+
+
           @ccb_id = t["id"]
           @campus_id = t["campus"][0]["id"] #
           @campus = t["campus"][0]["content"] ##
@@ -114,6 +116,7 @@ else
             if allergy.empty?
               @allergy_string = ""
             else
+              allergy = allergy.to_s.gsub(/[,]/ ,";")
               if @allergy_string == ""
                   @allergy_string = allergy
               else
@@ -121,6 +124,7 @@ else
               end
             end
           end
+
           @noallergies = t["confirmed_no_allergies"][0] ##
           t["emergency_contact_name"][0].empty?     ? @emergency_contact = "" : @emergency_contact = t["emergency_contact_name"][0]  ##
           t["anniversary"][0].empty?        ? @anniversary       = "" : @anniversary      = t["anniversary"][0]
@@ -499,9 +503,7 @@ else
                   @udf_pulldown_5_label + "," +
                   @udf_pulldown_5_value + "," +
                   @udf_pulldown_6_label + "," +
-                  @udf_pulldown_6_value + "," +
-                  @image                 + "," +
-                  family_image
+                  @udf_pulldown_6_value
        @active ? status = "Active" : status = "Inactive"
        case @gender
            when "M"
@@ -511,8 +513,10 @@ else
            else
              pco_gender = ""
        end
+       @remote_id = @ccb_id
        pco_line =
                   @salutation + "," +
+                  @remote_id + "," +
                   @legal_fname + "," +
                   @fname + "," +
                   @mname + "," +
@@ -618,66 +622,29 @@ else
   puts "Array Loading Complete... running dedup pass..."
   # run uniq pass to eliminate duplicates
   ccb_array2 = ccb_array.uniq
-  puts "Dedup found #{ccb_array.count - ccb_array2.count} duplicates.. removed from output csv file"
+  puts "CCB Dedup found #{ccb_array.count - ccb_array2.count} duplicates.. removed from output csv file"
+  pco_array2 = pco_array.uniq
+  puts "PCO Dedup found #{pco_array.count - pco_array2.count} duplicates.. removed from output csv file"
+
   image_counter = 0
   family_image_counter = 0
 
   File.open(ccbfile, 'w') do |file|
-  puts "******************************************************"
-  puts "Outputting ccbextract csv file, as well as collecting /"
-  puts "downloading CCB per person and family image files (if available)..."
-  puts "(Skipping nil and default image file names)"
+  puts "Outputting ccbextract csv file ..."
       ccb_array2.each do |c|
         file.write("#{c}\n")
-        image_array = c.split(',')
-        if !image_array[imagecol].nil? and image_array[imagecol] != "family_image" and image_array[imagecol] != "" and !(image_array[imagecol] =~ /default(.*)/)
-
-          puts "Saving image for #{image_array[fnamecol]} #{image_array[lnamecol]}"
-          begin
-
-                  targetfile = imagefolder + "/" + image_array[ccbidcol] + "_" + image_array[fnamecol] + "_" + image_array[lnamecol] + "_" + image_counter.to_s + ".jpg"
-                  File.write targetfile, open(image_array[imagecol]).read
-          rescue Exception => error
-                  puts "Error downloading file -- skipping"
-                  pp error
-
-          end
-            image_counter += 1
-        end
-            # if family image field not nil, not empty and "default", save it
-            if !image_array[familyimagecol].nil? and image_array[familyimagecol] != "family_image" and image_array[familyimagecol] != "" and !(image_array[familyimagecol] =~ /default(.*)/)
-                puts "saving family image for #{image_array[famidcol]} #{image_array[lnamecol]}"
-                begin
-
-                  targetfile = famimagefolder + "/" + image_array[famidcol] + "_" + image_array[famnamecol] + "_" + family_image_counter.to_s + ".jpg"
-                  File.write targetfile, open(image_array[familyimagecol]).read
-                rescue Exception => error
-                  puts "Error downloading file -- skipping"
-                end
-                family_image_counter += 1
-
-            end
-            if image_array[campuscol] != "campus"
-              campus_array << [image_array[campuscol],""]
-            end
-      end
-
+       end
       File.open(pcofile, 'w') do |file|
-      puts "******************************************************"
       puts "Outputting pcoimport csv file..."
-          pco_array.each do |p|
+          pco_array2.each do |p|
             file.write("#{p}\n")
           end
-
-
-  campus_array = campus_array.uniq
+      campus_array = campus_array.uniq
   end
   puts "******************************************************"
   puts "DONE!"
   puts ""
   puts "Final record count: #{ccb_array2.count}"
-  puts "Downloaded image count: #{image_counter}"
-  puts "Downloaded family image count: #{family_image_counter}"
 end
 
     if !campus_array.empty?
