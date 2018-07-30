@@ -17,11 +17,15 @@ batchcount = 0
 transcount = 0
 tdcount = 0
 datestamp = Time.now
+mainfolder = "./output"
+if !File.exists? mainfolder
+   Dir.mkdir mainfolder
+end
 
 ccbheader = ""
 ccb_array << ccbheader
 
-ccbfile = "output/ccbtransactions_#{datestamp.strftime("%y%m%d%H%M")}.csv"
+ccbfile = "#{mainfolder}/ccbtransactions_#{datestamp.strftime("%y%m%d%H%M")}.csv"
 
   puts("==================================================================================================")
   puts("CCB Batch Extraction Script - intended to export batch/transaction/tranaction detail info from CCB")
