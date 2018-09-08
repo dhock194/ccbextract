@@ -22,7 +22,7 @@ if !File.exists? mainfolder
    Dir.mkdir mainfolder
 end
 
-ccbheader = ""
+ccbheader = "batch_id,batch_campus,batch_post_date,batch_begin_date,batch_end_date,batch_in_accounting,batch_status,batch_source,trans_id,trans_campus,trans_individual,trans_date,trans_payment_type,trans_check_number,trans_creator,trans_modifier,trans_created,trans_modified,td_id,td_coa,td_amount,td_tax_deductible,td_note,td_creator"
 ccb_array << ccbheader
 
 ccbfile = "#{mainfolder}/ccbtransactions_#{datestamp.strftime("%y%m%d%H%M")}.csv"
@@ -60,6 +60,7 @@ ccbfile = "#{mainfolder}/ccbtransactions_#{datestamp.strftime("%y%m%d%H%M")}.csv
                   trans_id = t["id"]
                   trans_campus = t["campus"][0]["content"]
                   trans_individual = t["individual"][0]["content"]
+                  trans_individual = trans_individual.sub ',', ''
                   trans_date = t["date"][0]
                   trans_payment_type = t["payment_type"][0]
                   !t["check_number"][0].empty? ? trans_check_number = t["check_number"][0] : trans_check_number = ""
