@@ -32,7 +32,7 @@ if !File.exists? mainfolder
    Dir.mkdir mainfolder
 end
 
-ccbfile = "#{mainfolder}/ccbabbrev_#{datestamp.strftime("%y%m%d%H%M")}.csv"
+ccbfile = "#{mainfolder}/ccbtransactions_#{datestamp.strftime("%y%m%d%H%M")}.csv"
 File.open(ccbfile,"a") do |csv|
 
 
