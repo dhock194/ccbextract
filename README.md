@@ -4,7 +4,12 @@ The following scripts were created to simplify migration of data off of Communit
 
 First a bit of history…When we migrated from CCB to PCO in the Fall of 2016, the process of extracting information out of CCB was [quite painful](http://www.bottomshelvz.com/2017/04/why-we-migrated-from-ccb-to-pco/), while the import process into PCO was simple and quick. Even though our migration is complete, I thought it might be of value to the PCO Community to write a script or two to simplify this CCB export process, and possibly do a little bit of prep for PCO import as well.
 
-## Update:
+## Update- December 2018
+In testing with several churches, the CCB API has started to generate 404/timeout failures for large data pulls. This seems to occur for larger churches, with more than 15K people  (and a similar scale of batch/giving records), and seems to occur mostly in the ccb-batch-extract script. I have also seen the API generate a lot of empty sets for the batch extraction, where trying a moment later is successful.
+
+To address this, I have updated the ccb-batch-extract script to do per month data pulls, which their API seems to respond to more consistently. When executed, the ccb-batch-extract script will prompt for a starting year (ie the year you started using CCB), and will then iterate month by month to present day, outputing to the csv file. If the response from CCB API is empty, the script will sleep for 30 seconds, and retry until a valid response is received.
+
+## Update- July 2018
 Several churches reported that the ccb-people-extract script was producing duplicated people records. In researching to address this, it was discovered that CCB apparently changed their image storage method to increase security, likely related to GDPR and other privacy efforts. Version 2.0 was released in July 2018 to address this -- the image download has been disabled, and a few other checks inserted to assure no duplicate records in the output. We are still looking for methods to restore the image download, and will provide an update if one is identified.
 
 ## Why Ruby Scripts?
