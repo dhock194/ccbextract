@@ -11,11 +11,11 @@ We have taken a different approach to capturing and performing the Profile and F
 
 Running the people extract with no parameters will ONLY download the People profile info, w/o pictures
 
-    ruby ccb-people-extract-wimage-onelife.rb
+    ruby ccb-people-extract.rb
 
 Running the people extract with the parameter "images" will also download any available pictures CCB
 
-    ruby ccb-people-extract-wimage-onelife.rb images
+    ruby ccb-people-extract.rb images
 
 
 ## Update- December 2018
