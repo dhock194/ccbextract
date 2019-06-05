@@ -5,9 +5,9 @@ The following scripts were created to simplify migration of data off of Communit
 First a bit of history…When we migrated from CCB to PCO in the Fall of 2016, the process of extracting information out of CCB was [quite painful](http://www.bottomshelvz.com/2017/04/why-we-migrated-from-ccb-to-pco/), while the import process into PCO was simple and quick. Even though our migration is complete, I thought it might be of value to the PCO Community to write a script or two to simplify this CCB export process, and possibly do a little bit of prep for PCO import as well.
 
 ## Update- June 2019
-Since these scripts were originally posted in 2017, CCB has made a number of API non-backwardly compatible changes that broke the ability to programattically download the CCB Profile and Family images. We would fix it, they would break it again, repeat several times. Eventually, since it breaking the image download also broke the script in general, this function was removed.
+Since these scripts were originally posted in 2017, CCB has made a number of non-backwardly compatible API changes that broke the ability to programmatically download the CCB Profile and Family images. We would fix it, they would break it again, repeat several times. Eventually, since breaking the image download also broke the script in general, this function was removed.
 
-We have taken a different approach to capturing and performing the Profile and Family images in the People Extract script, which currently works again. However, just in case it breaks again, we have left alternatives in so it will not generally break the script.
+We have taken a different approach to capturing and performing the Profile and Family images in the People Extract script, which currently works again. However, just in case it breaks again, we have left alternatives in, so it will not break the script.
 
 Running the people extract with no parameters will ONLY download the People profile info, w/o pictures
 
