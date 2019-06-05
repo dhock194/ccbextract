@@ -105,18 +105,15 @@ The first script that you're going to want to run is the CCB people extraction s
 
          `ruby ccb-people-extract.rb`
 
-          Or 
+          Or
 
          `ruby ccb-people-extract.rb images`
 
-    2. The script will take several minutes to complete the extraction, and begin to download the images, if any.
+    2. The script will take several minutes to complete the extraction (and download the images, if selected).
     3. Once complete, the script will give you a final count of the People record count it extracted, as well as the number of person and family images download. The script will also detect if campus names were in the extracted info, and make some recommendations for the import.
     4. The output of the script will be placed into an output subfolder in the folder you ran it:
         1. You will find  `ccbextract_<date>.csv` and `pcoimport_<date>.csv` files in the output subfolder. Both are date and time stamped, so if you run the script again, you will have the new and older copies of each.
         2. Person images downloaded will be in the `output/ccbextract_images` subfolder, and Family images will be in the `output/ccbextract_family_images` subfolder.
-
-6. **Notes**
- - As of 9/27/17, CCB apparently changed something related to the image URLs that the script was extracting, making the script fail and images unable to be downloaded. I updated the script on 9/29/17 to accomodate this change, so please make sure that you a) reinstall the gems based on the new list above, or at least install the eat gem, and b) Download the newest version of the script from this site.
 
 
 ## ccb-batch-extraction.rb
