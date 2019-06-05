@@ -103,7 +103,11 @@ The first script that you're going to want to run is the CCB people extraction s
 5. **Now for the full extraction!**
     1. Again, with the same terminal window open, run the following command   
 
-         `ruby ccb-people-extract.rb`   
+         `ruby ccb-people-extract.rb`
+
+    Or 
+
+    `ruby ccb-people-extract.rb images`
 
     2. The script will take several minutes to complete the extraction, and begin to download the images, if any.
     3. Once complete, the script will give you a final count of the People record count it extracted, as well as the number of person and family images download. The script will also detect if campus names were in the extracted info, and make some recommendations for the import.
