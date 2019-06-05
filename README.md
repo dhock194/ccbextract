@@ -4,6 +4,20 @@ The following scripts were created to simplify migration of data off of Communit
 
 First a bit of history…When we migrated from CCB to PCO in the Fall of 2016, the process of extracting information out of CCB was [quite painful](http://www.bottomshelvz.com/2017/04/why-we-migrated-from-ccb-to-pco/), while the import process into PCO was simple and quick. Even though our migration is complete, I thought it might be of value to the PCO Community to write a script or two to simplify this CCB export process, and possibly do a little bit of prep for PCO import as well.
 
+## Update- June 2019
+Since these scripts were originally posted in 2017, CCB has made a number of API non-backwardly compatible changes that broke the ability to programattically download the CCB Profile and Family images. We would fix it, they would break it again, repeat several times. Eventually, since it breaking the image download also broke the script in general, this function was removed.
+
+We have taken a different approach to capturing and performing the Profile and Family images in the People Extract script, which currently works again. However, just in case it breaks again, we have left alternatives in so it will not generally break the script.
+
+Running the people extract with no parameters will ONLY download the People profile info, w/o pictures
+
+    ruby ccb-people-extract-wimage-onelife.rb
+
+Running the people extract with the parameter "images" will also download any available pictures CCB
+
+    ruby ccb-people-extract-wimage-onelife.rb images
+
+
 ## Update- December 2018
 In testing with several churches, the CCB API has started to generate 404/timeout failures for large data pulls. This seems to occur for larger churches, with more than 15K people  (and a similar scale of batch/giving records), and seems to occur mostly in the ccb-batch-extract script. I have also seen the API generate a lot of empty sets for the batch extraction, where trying a moment later is successful.
 
@@ -161,6 +175,10 @@ These stub scripts are as follows:
 
 ***
 ## Version History:
+**3.0 released June 2019**
+Fixed profile/family image download in people extract, refined fields in batch extract.
+
+
 **2.0 released July 2018**
 Updates to ccb-people-extract to address issues being reported. CCB apparently changed their image storage format to include better security, which both broke the image download, and created multiples of many people records (e.g. church of 800 outputted 5000 people records. The code was updated to remove the image downloads (looking to see if there are methods this can still be done), which also eliminated the records duplicates.
 

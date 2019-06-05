@@ -1,4 +1,3 @@
-
 require 'rubygems'
 require 'curl'
 require 'curb'
@@ -18,7 +17,7 @@ ccb_service = "individual_search"
 ccb_search_parm = "last_name"
 ccb_array = []
 ccb_array2 = []
-ccbheader = "fname,lname,mname,salutation,legal_fname,suffix,gender,martial_status,birthday,email,emails,allergy_string,noallergies,anniversary,baptized,family_id,family,family_position,emergency_contact,campus,campus_id,ccb_id,deceased,membership_type,membership_date,membership_end,receive_email_from_church,active,created_at,modified_at,mailing_street,mailing_city,mailing_state,mailing_zip,home_street,home_city,home_state,home_zip,work_street,work_city,work_state,work_zip,other_street,other_city,other_state,other_zip,contact_phone,home_phone,work_phone,mobile_phone,mobile_carrier,udf_text_1_label,udf_text_1_value,udf_text_2_label,udf_text_2_value,udf_text_3_label,udf_text_3_value,udf_text_4_label,udf_text_4_value,udf_text_5_label,udf_text_5_value,udf_text_6_label,udf_text_6_value,udf_text_7_label,udf_text_7_value,udf_text_8_label,udf_text_8_value,udf_text_9_label,udf_text_9_value,udf_text_10_label,udf_text_10_value,udf_text_11_label,udf_text_11_value,udf_text_12_label,udf_text_12_value,udf_text_13_label,udf_text_13_value,udf_text_14_label,udf_text_14_value,udf_text_15_label,udf_text_15_value,udf_text_16_label,udf_text_16_value,udf_text_17_label,udf_text_17_value,udf_text_18_label,udf_text_18_value,udf_text_19_label,udf_text_19_value,udf_text_20_label,udf_text_20_value,udf_date_1_label,udf_date_1_value,udf_date_2_label,udf_date_2_value,udf_date_3_label,udf_date_3_value,udf_date_4_label,udf_date_4_value,udf_date_5_label,udf_date_5_value,udf_date_6_label,udf_date_6_value,udf_pulldown_1_label,udf_pulldown_1_value,udf_pulldown_2_label,udf_pulldown_2_value,udf_pulldown_3_label,udf_pulldown_3_value,udf_pulldown_4_label,udf_pulldown_4_value,udf_pulldown_5_label,udf_pulldown_5_value,udf_pulldown_6_label,udf_pulldown_6_value"
+ccbheader = "fname,lname,mname,salutation,legal_fname,suffix,gender,martial_status,birthday,email,emails,allergy_string,noallergies,anniversary,baptized,family_id,family,family_position,emergency_contact,campus,campus_id,ccb_id,deceased,membership_type,membership_date,membership_end,receive_email_from_church,active,created_at,modified_at,mailing_street,mailing_city,mailing_state,mailing_zip,home_street,home_city,home_state,home_zip,work_street,work_city,work_state,work_zip,other_street,other_city,other_state,other_zip,contact_phone,home_phone,work_phone,mobile_phone,mobile_carrier,udf_text_1_label,udf_text_1_value,udf_text_2_label,udf_text_2_value,udf_text_3_label,udf_text_3_value,udf_text_4_label,udf_text_4_value,udf_text_5_label,udf_text_5_value,udf_text_6_label,udf_text_6_value,udf_text_7_label,udf_text_7_value,udf_text_8_label,udf_text_8_value,udf_text_9_label,udf_text_9_value,udf_text_10_label,udf_text_10_value,udf_text_11_label,udf_text_11_value,udf_text_12_label,udf_text_12_value,udf_text_13_label,udf_text_13_value,udf_text_14_label,udf_text_14_value,udf_text_15_label,udf_text_15_value,udf_text_16_label,udf_text_16_value,udf_text_17_label,udf_text_17_value,udf_text_18_label,udf_text_18_value,udf_text_19_label,udf_text_19_value,udf_text_20_label,udf_text_20_value,udf_date_1_label,udf_date_1_value,udf_date_2_label,udf_date_2_value,udf_date_3_label,udf_date_3_value,udf_date_4_label,udf_date_4_value,udf_date_5_label,udf_date_5_value,udf_date_6_label,udf_date_6_value,udf_pulldown_1_label,udf_pulldown_1_value,udf_pulldown_2_label,udf_pulldown_2_value,udf_pulldown_3_label,udf_pulldown_3_value,udf_pulldown_4_label,udf_pulldown_4_value,udf_pulldown_5_label,udf_pulldown_5_value,udf_pulldown_6_label,udf_pulldown_6_value,image,family_image"
 ccb_array << ccbheader
 pco_array = []
 pco_array2 = []
@@ -38,8 +37,8 @@ unless File.directory?(famimagefolder)
   FileUtils.mkdir_p(famimagefolder)
 end
 #Column numbers mapping
-imagecol        = 87
-familyimagecol  = 88
+imagecol        = 95
+familyimagecol  = 96
 fnamecol        = 0
 lnamecol        = 1
 ccbidcol        = 21
@@ -103,14 +102,50 @@ else
           @family = @family.sub ',', ''
           @family_position = t["family_position"][0]
           family_image = t["family_image"][0] ##
+          if ARGV.count == 1 and ARGV.first == "images" and !(family_image =~ /default(.*)/)
+                  begin
+                      targetfile =  famimagefolder + "/" + @fname + "_" + @lname + "_family_" + @family_id + ".jpg"
+                      # targetfile = targetfile.str.downcase.tr(" ", "_")
+                      targetfile = targetfile.gsub(/[ ]/ ,"_")
+                      # puts targetfile
+                      File.write targetfile, open(family_image).read
+                      puts "Writing #{targetfile}..."
+                  rescue Exception => error
+                      puts "Error downloading family file -- skipping"
+                      pp error
+                  end
+          end
+
           @fname =  t["first_name"][0]
+          if @fname.class == Hash
+            @fname = "X"
+          end
+          # @fname = @fname.sub(/[!@#$%^&*()-=_+|;:",.<>?']/, '')
           @lname = t["last_name"][0]
-          @lname = @lname.sub ',', ''
+          # @lname = @lname.sub(/[!@#$%^&*()-=_+|;:",.<>?']/, '')
+          # @lname = @lname.sub ',', ''
+          # puts "#{@fname} #{@lname}"
           t["middle_name"][0].empty?        ? @mname         = "" : @mname          = t["middle_name"][0]
           t["legal_first_name"][0].empty?   ? @legal_fname   = "" : @legal_fname    = t["legal_first_name"][0]
           t["salutation"][0].empty?         ? @salutation    = "" :  @salutation    = t["salutation"][0]
           t["suffix"][0].empty?             ? @suffix        = "" :  @suffix        = t["suffix"][0]
           @image = t["image"][0] ##
+          if ARGV.count == 1 and ARGV.first == "images" and !(@image =~ /default(.*)/)
+
+              begin
+                  targetfile =  imagefolder + "/" + @fname + "_" + @lname + "_" + @ccb_id + ".jpg"
+                  # targetfile = targetfile.str.downcase.tr(" ", "_")
+                  targetfile = targetfile.gsub(/[ ]/ ,"_")
+
+                  # puts targetfile
+                  File.write targetfile, open(@image).read
+                  puts "Writing #{targetfile}..."
+              rescue Exception => error
+                  puts "Error downloading file -- skipping"
+                  pp error
+              end
+          end
+
           @allergy_string = ""
           t["allergies"].each do |allergy|
             if allergy.empty?
@@ -503,7 +538,9 @@ else
                   @udf_pulldown_5_label + "," +
                   @udf_pulldown_5_value + "," +
                   @udf_pulldown_6_label + "," +
-                  @udf_pulldown_6_value
+                  @udf_pulldown_6_value + "," +
+                  @image + "," +
+                  family_image
        @active ? status = "Active" : status = "Inactive"
        case @gender
            when "M"

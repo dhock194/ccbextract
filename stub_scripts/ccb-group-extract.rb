@@ -26,7 +26,7 @@ recordcount = 0
 ccbheader = "id,name,description,leader_notes,start_datetime,end_date,end_time,timezone,recurrence_description,recurrence_description,approval_status,group,organizer,phone,loc_name,loc_street,loc_city,loc_state,loc_zip,loc_line1,loc_line2,reg_limit,reg_event_type,reg_forms_id,reg_form_name,guest_list,resources,setup_start,setup_end,setup_notes,event_grouping,creator,modifier,listed,public_calendar_listed,image,created,modified"
 ccb_array << ccbheader
 
-ccbfile = "output/ccbevents_#{datestamp.strftime("%y%m%d%H%M")}.csv"
+ccbfile = "output/ccbgroups_#{datestamp.strftime("%y%m%d%H%M")}.csv"
 
 
 puts("==================================================================================================")
