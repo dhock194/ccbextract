@@ -22,7 +22,7 @@ ccb_array << ccbheader
 pco_array = []
 pco_array2 = []
 pco_header =
-"Name Prefix,remote_id,Given Name,First Name,Middle Name,Last Name,Name Suffix,Birthdate,Anniversary,Gender,Medical,Marital Status,Status,Membership,Home Address Street Line 1,Home Address City,Home Address State,Home Address Zip,Work Address Street Line 1,Work Address City,Work Address State,Work Address Zip,Other Address Street Line 1,Other Address City,Other Address State,Other Address Zip,Mobile Phone Number,Home Phone Number,Work Phone Number,Other Phone Number,Mobile Carrier,Home Email,Household ID,Campus,pco_text_1_value,pco_text_2_label,pco_text_2_value,pco_text_3_label,pco_text_3_value,pco_text_4_label,pco_text_4_value,pco_text_5_label,pco_text_5_value,pco_text_6_label,pco_text_6_value,pco_text_7_label,pco_text_7_value,pco_text_8_label,pco_text_8_value,pco_text_9_label,pco_text_9_value,pco_text_10_label,pco_text_10_value,pco_text_11_label,pco_text_11_value,pco_text_12_label,pco_text_12_value,pco_text_13_label,pco_text_13_value,pco_text_14_label,pco_text_14_value,pco_text_15_label,pco_text_15_value,pco_text_16_label,pco_text_16_value,pco_text_17_label,pco_text_17_value,pco_text_18_label,pco_text_18_value,pco_text_19_label,pco_text_19_value,pco_date_1_label,pco_date_1_value,pco_date_2_label,pco_date_2_value,pco_date_3_label,pco_date_3_value,pco_date_4_label,pco_date_4_value,pco_date_5_label,pco_date_5_value,pco_date_6_label,pco_date_6_value,pco_pulldown_1_label,pco_pulldown_1_value,pco_pulldown_2_label,pco_pulldown_2_value,pco_pulldown_3_label,pco_pulldown_3_value,pco_pulldown_4_label,pco_pulldown_4_value,pco_pulldown_5_label,pco_pulldown_5_value,pco_pulldown_6_label,pco_pulldown_6_value"
+"Name Prefix,remote_id,Given Name,First Name,Middle Name,Last Name,Name Suffix,Birthdate,Anniversary,Gender,Medical,Marital Status,Status,Membership,Home Address Street Line 1,Home Address City,Home Address State,Home Address Zip,Work Address Street Line 1,Work Address City,Work Address State,Work Address Zip,Other Address Street Line 1,Other Address City,Other Address State,Other Address Zip,Mobile Phone Number,Home Phone Number,Work Phone Number,Other Phone Number,Mobile Carrier,Home Email,Household ID,Household Primary Contact,Campus,pco_text_1_value,pco_text_2_label,pco_text_2_value,pco_text_3_label,pco_text_3_value,pco_text_4_label,pco_text_4_value,pco_text_5_label,pco_text_5_value,pco_text_6_label,pco_text_6_value,pco_text_7_label,pco_text_7_value,pco_text_8_label,pco_text_8_value,pco_text_9_label,pco_text_9_value,pco_text_10_label,pco_text_10_value,pco_text_11_label,pco_text_11_value,pco_text_12_label,pco_text_12_value,pco_text_13_label,pco_text_13_value,pco_text_14_label,pco_text_14_value,pco_text_15_label,pco_text_15_value,pco_text_16_label,pco_text_16_value,pco_text_17_label,pco_text_17_value,pco_text_18_label,pco_text_18_value,pco_text_19_label,pco_text_19_value,pco_date_1_label,pco_date_1_value,pco_date_2_label,pco_date_2_value,pco_date_3_label,pco_date_3_value,pco_date_4_label,pco_date_4_value,pco_date_5_label,pco_date_5_value,pco_date_6_label,pco_date_6_value,pco_pulldown_1_label,pco_pulldown_1_value,pco_pulldown_2_label,pco_pulldown_2_value,pco_pulldown_3_label,pco_pulldown_3_value,pco_pulldown_4_label,pco_pulldown_4_value,pco_pulldown_5_label,pco_pulldown_5_value,pco_pulldown_6_label,pco_pulldown_6_value"
 pco_array << pco_header
 mainfolder = "output"
 imagefolder = "#{mainfolder}/ccbextract_images"
@@ -92,7 +92,7 @@ else
         hashdata = XmlSimple.xml_in get.body_str
         person = hashdata["response"][0]["individuals"][0]["individual"]
         person.each do |t|
-
+          pp t
 
           @ccb_id = t["id"]
           @campus_id = t["campus"][0]["id"] #
@@ -101,6 +101,7 @@ else
           @family = t["family"][0]["content"]
           @family = @family.sub ',', ''
           @family_position = t["family_position"][0]
+          @family_position = "Primary Contact" ? @household_primary_contact = "TRUE" : @household_primary_contact = ""
           family_image = t["family_image"][0] ##
           if ARGV.count == 1 and ARGV.first == "images" and !(family_image =~ /default(.*)/)
                   begin
@@ -120,8 +121,10 @@ else
           if @fname.class == Hash
             @fname = "X"
           end
+          @fname = @fname.sub ',', ''
           # @fname = @fname.sub(/[!@#$%^&*()-=_+|;:",.<>?']/, '')
           @lname = t["last_name"][0]
+          @lname = @lname.sub ',', ''
           # @lname = @lname.sub(/[!@#$%^&*()-=_+|;:",.<>?']/, '')
           # @lname = @lname.sub ',', ''
           # puts "#{@fname} #{@lname}"
@@ -239,46 +242,7 @@ else
           t["birthday"][0].empty?    ? @birthday   = "" : @birthday  = t["birthday"][0]
 
         #UDF Date Fields
-        @udf_text_1_label = ""
-        @udf_text_1_value = ""
-        @udf_text_2_label = ""
-        @udf_text_2_value = ""
-        @udf_text_3_label = ""
-        @udf_text_3_value = ""
-        @udf_text_4_label = ""
-        @udf_text_4_value = ""
-        @udf_text_5_label = ""
-        @udf_text_5_value = ""
-        @udf_text_6_label = ""
-        @udf_text_6_value = ""
-        @udf_text_7_label = ""
-        @udf_text_7_value = ""
-        @udf_text_8_label = ""
-        @udf_text_8_value = ""
-        @udf_text_9_label = ""
-        @udf_text_9_value = ""
-        @udf_text_10_label = ""
-        @udf_text_10_value = ""
-        @udf_text_11_label = ""
-        @udf_text_11_value = ""
-        @udf_text_12_label = ""
-        @udf_text_12_value = ""
-        @udf_text_13_label = ""
-        @udf_text_13_value = ""
-        @udf_text_14_label = ""
-        @udf_text_14_value = ""
-        @udf_text_15_label = ""
-        @udf_text_15_value = ""
-        @udf_text_16_label = ""
-        @udf_text_16_value = ""
-        @udf_text_17_label = ""
-        @udf_text_17_value = ""
-        @udf_text_18_label = ""
-        @udf_text_18_value = ""
-        @udf_text_19_label = ""
-        @udf_text_19_value = ""
-        @udf_text_20_label = ""
-        @udf_text_20_value = ""
+        @udf_text_1_label,@udf_text_1_value,@udf_text_2_label,@udf_text_2_value,@udf_text_3_label,@udf_text_3_value,@udf_text_4_label,@udf_text_4_value,@udf_text_5_label,@udf_text_5_value,@udf_text_6_label,@udf_text_6_value,@udf_text_7_label,@udf_text_7_value,@udf_text_8_label,@udf_text_8_value,@udf_text_9_label,@udf_text_9_value,@udf_text_10_label,@udf_text_10_value,@udf_text_11_label,@udf_text_11_value,@udf_text_12_label,@udf_text_12_value,@udf_text_13_label,@udf_text_13_value,@udf_text_14_label,@udf_text_14_value,@udf_text_15_label,@udf_text_15_value,@udf_text_16_label,@udf_text_16_value,@udf_text_17_label,@udf_text_17_value,@udf_text_18_label,@udf_text_18_value,@udf_text_19_label,@udf_text_19_value,@udf_text_20_label,@udf_text_20_value = [""] * 40
             if !t["user_defined_text_fields"][0]["user_defined_text_field"].nil?
                 t["user_defined_text_fields"][0]["user_defined_text_field"].each do |ctext|
                       case ctext["name"][0]
@@ -347,18 +311,7 @@ else
                 end
           end
         #UDF Date Fields
-        @udf_date_1_label = ""
-        @udf_date_1_value = ""
-        @udf_date_2_label = ""
-        @udf_date_2_value = ""
-        @udf_date_3_label = ""
-        @udf_date_3_value = ""
-        @udf_date_4_label = ""
-        @udf_date_4_value = ""
-        @udf_date_5_label = ""
-        @udf_date_5_value = ""
-        @udf_date_6_label = ""
-        @udf_date_6_value = ""
+        @udf_date_1_label,@udf_date_1_value,@udf_date_2_label,@udf_date_2_value,@udf_date_3_label,@udf_date_3_value,@udf_date_4_label,@udf_date_4_value,@udf_date_5_label,@udf_date_5_value,@udf_date_6_label,@udf_date_6_value = "","","","","","","","","","","",""
             if !t["user_defined_date_fields"][0]["user_defined_date_field"].nil?
                 t["user_defined_date_fields"][0]["user_defined_date_field"].each do |cdate|
                       case cdate["name"][0]
@@ -385,18 +338,7 @@ else
                     end
               end
               #UDF Pulldown Fields
-                @udf_pulldown_1_label = ""
-                @udf_pulldown_1_value = ""
-                @udf_pulldown_2_label = ""
-                @udf_pulldown_2_value = ""
-                @udf_pulldown_3_label = ""
-                @udf_pulldown_3_value = ""
-                @udf_pulldown_4_label = ""
-                @udf_pulldown_4_value = ""
-                @udf_pulldown_5_label = ""
-                @udf_pulldown_5_value = ""
-                @udf_pulldown_6_label = ""
-                @udf_pulldown_6_value = ""
+                @udf_pulldown_1_label,@udf_pulldown_1_value,@udf_pulldown_2_label,@udf_pulldown_2_value,@udf_pulldown_3_label,@udf_pulldown_3_value,@udf_pulldown_4_label,@udf_pulldown_4_value,@udf_pulldown_5_label,@udf_pulldown_5_value,@udf_pulldown_6_label,@udf_pulldown_6_value = "","","","","","","","","","","",""
                   if !t["user_defined_pulldown_fields"][0]["user_defined_pulldown_field"].nil?
                       t["user_defined_pulldown_fields"][0]["user_defined_pulldown_field"].each do |cpull|
                         case cpull["name"][0]
@@ -585,6 +527,7 @@ else
                   @mobile_carrier  + "," +
                   @email  + "," +
                   @family_id  + "," +
+                  @household_primary_contact + "," +
                   @campus  + "," +
                   @udf_text_1_label + "," +
                   @udf_text_1_value + "," +
