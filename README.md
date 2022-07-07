@@ -4,6 +4,28 @@ The following scripts were created to simplify migration of data off of Communit
 
 First a bit of history…When we migrated from CCB to PCO in the Fall of 2016, the process of extracting information out of CCB was [quite painful](http://www.bottomshelvz.com/2017/04/why-we-migrated-from-ccb-to-pco/), while the import process into PCO was simple and quick. Even though our migration is complete, I thought it might be of value to the PCO Community to write a script or two to simplify this CCB export process, and possibly do a little bit of prep for PCO import as well.
 
+## Update- June 2019
+Since these scripts were originally posted in 2017, CCB has made a number of non-backwardly compatible API changes that broke the ability to programmatically download the CCB Profile and Family images. We would fix it, they would break it again, repeat several times. Eventually, since breaking the image download also broke the script in general, this function was removed.
+
+We have taken a different approach to capturing and performing the Profile and Family images in the People Extract script, which currently works again. However, just in case it breaks again, we have left alternatives in, so it will not break the script.
+
+Running the people extract with no parameters will ONLY download the People profile info, w/o pictures
+
+    ruby ccb-people-extract.rb
+
+Running the people extract with the parameter "images" will also download any available pictures CCB
+
+    ruby ccb-people-extract.rb images
+
+
+## Update- December 2018
+In testing with several churches, the CCB API has started to generate 404/timeout failures for large data pulls. This seems to occur for larger churches, with more than 15K people  (and a similar scale of batch/giving records), and seems to occur mostly in the ccb-batch-extract script. I have also seen the API generate a lot of empty sets for the batch extraction, where trying a moment later is successful.
+
+To address this, I have updated the ccb-batch-extract script to do per month data pulls, which their API seems to respond to more consistently. When executed, the ccb-batch-extract script will prompt for a starting year (ie the year you started using CCB), and will then iterate month by month to present day, outputing to the csv file. If the response from CCB API is empty, the script will sleep for 30 seconds, and retry until a valid response is received.
+
+## Update- July 2018
+Several churches reported that the ccb-people-extract script was producing duplicated people records. In researching to address this, it was discovered that CCB apparently changed their image storage method to increase security, likely related to GDPR and other privacy efforts. Version 2.0 was released in July 2018 to address this -- the image download has been disabled, and a few other checks inserted to assure no duplicate records in the output. We are still looking for methods to restore the image download, and will provide an update if one is identified.
+
 ## Why Ruby Scripts?
 The method to export the information out of CCB to could taken several different forms. I chose to use simple composite Ruby scripts for a couple of reasons:
 1) A lot of the PCO community, and even some of the PCO team themselves, seem to like Ruby
@@ -50,7 +72,6 @@ then enter. You should get some info about the Ruby version installed, indicatin
 The first script that you're going to want to run is the CCB people extraction script (ccb-people-extraction.rb), which will extract all of the people data out of CCB and provide you with several outputs:
 * A CCB Export CSV file, containing all available information that came out of CCB, generally unfiltered or untranslated.
 * A PCO import CSV, which is much of the same data, but formatted to align with the prescribed headers for PCO import. This file should be (essentially) ready for PCO import, and most of the headers will be recognized by the PCO import tool, and automatically
-* CCB supports images per person and per family and during the extraction each person record might have an image field (as a URL), so the script downloads of each of these files, if available, and places them in one of two image folders (person and family)
 
 ### How to use
 1. **The first thing** you're going to want to do is some field mappings. CCB and PCO have some minor differences in certain field values, such as membership status, marital status, name suffixes, etc. For the most part, we've left these values alone. But, you will want to make sure that any of these values you are using in CCB is also in PCO. This is more true is your church has modified the CCB customizable field values.
@@ -82,16 +103,17 @@ The first script that you're going to want to run is the CCB people extraction s
 5. **Now for the full extraction!**
     1. Again, with the same terminal window open, run the following command   
 
-         `ruby ccb-people-extract.rb`   
+         `ruby ccb-people-extract.rb`
 
-    2. The script will take several minutes to complete the extraction, and begin to download the images, if any.
+          Or
+
+         `ruby ccb-people-extract.rb images`
+
+    2. The script will take several minutes to complete the extraction (and download the images, if selected).
     3. Once complete, the script will give you a final count of the People record count it extracted, as well as the number of person and family images download. The script will also detect if campus names were in the extracted info, and make some recommendations for the import.
     4. The output of the script will be placed into an output subfolder in the folder you ran it:
         1. You will find  `ccbextract_<date>.csv` and `pcoimport_<date>.csv` files in the output subfolder. Both are date and time stamped, so if you run the script again, you will have the new and older copies of each.
         2. Person images downloaded will be in the `output/ccbextract_images` subfolder, and Family images will be in the `output/ccbextract_family_images` subfolder.
-
-6. **Notes**
- - As of 9/27/17, CCB apparently changed something related to the image URLs that the script was extracting, making the script fail and images unable to be downloaded. I updated the script on 9/29/17 to accomodate this change, so please make sure that you a) reinstall the gems based on the new list above, or at least install the eat gem, and b) Download the newest version of the script from this site.
 
 
 ## ccb-batch-extraction.rb
@@ -153,9 +175,23 @@ These stub scripts are as follows:
 - ccb-resource-extract.rb       -->     Extracts CCB resource records
 
 ***
+## Version History:
+**3.0 released June 2019**
+Fixed profile/family image download in people extract, refined fields in batch extract.
 
+
+**2.0 released July 2018**
+Updates to ccb-people-extract to address issues being reported. CCB apparently changed their image storage format to include better security, which both broke the image download, and created multiples of many people records (e.g. church of 800 outputted 5000 people records. The code was updated to remove the image downloads (looking to see if there are methods this can still be done), which also eliminated the records duplicates.
+
+**1.0 released October 2017**
+Original release of several scripts:
+- ccb-people-extract.rb         -->     Extracts CCB people records, outputting CSV copies of the records, as well as downloading the people and family images.
+- ccb-batch-extract.rb          -->     Extracts CCB giving records
+- ccb-events-extract.rb         -->     Extracts CCB event records
+
+***
 Apparently, these scripts are a hit, and numerous churches have used these to migrate their data. Awesome! While they are not perfect, the goal was to make the exit process from CCB less painful than it was for us!
 
 I have also worked with a number of churches that have run into issue in running the scripts, usually having to do with getting Ruby or the Gems running, permissions, and other OS level issues. Running on Windows 10 seems to be a particular issue.
 
-If you are running into these kinds of issues, or dont have the technical skills to get this working, I can provide consulting services to support your export. The fee is small, and ranges based on the scale of data you have in CCB -- the resources and time required can be different for churches of 100's vs 1000's. You can contact me about these services at <bottomshelvz@gmail.com>. Please note that this will require you create a CCB API user (with all permissions) for me to use, which can be deleted immediately after the extracts are completed and verified on your side. 
+If you are running into these kinds of issues, or dont have the technical skills to get this working, I can provide consulting services to support your export. The fee is small, and ranges based on the scale of data you have in CCB -- the resources and time required can be different for churches of 100's vs 1000's. You can contact me about these services at <bottomshelvz@gmail.com>. Please note that this will require you create a CCB API user (with all permissions) for me to use, which can be deleted immediately after the extracts are completed and verified on your side.
